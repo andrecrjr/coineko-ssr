@@ -12,11 +12,15 @@ export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
   );
   if (!isLoading)
     return (
-      <ul className="suggest--box" role="listbox" aria-autocomplete="list">
+      <ul className="suggest--box" role="listbox">
         {data &&
           data.coins.map((item: CurrencyItem) => {
             return (
-              <li role="option" key={item.id} className="suggest--box__option">
+              <li
+                role="aria-selected"
+                key={item.id}
+                className="suggest--box__option"
+              >
                 <AutoCompleteItem currency={item} />
               </li>
             );
