@@ -1,6 +1,6 @@
 import { Method } from "axios";
 import useSWR from "swr";
-import { axiosInstance } from "../services/ApiService";
+import { axiosInstance } from "@/services/ApiService";
 
 const defaultConfig = {
   revalidateOnFocus: true,

@@ -2,14 +2,15 @@
 import { memo } from "react";
 import { SearchBar } from "./SearchBar";
 import Menu from "./Menu";
+import Cat from "@/assets/Cat";
 
 const Header = () => {
   return (
     <header className="flex flex-col items-center">
       <section className="sm:ml-4 sm:py-2 flex w-10/12 justify-between flex-col sm:flex-row relative">
         <h1 className="text-4xl flex items-center" title="coineko">
-          coineko
-          {/* <Cat className="inline self-center w-5 sm:w-10" /> */}
+          coinek
+          <Cat className="inline self-center w-5 sm:w-10" alt={"coineko"} />
         </h1>
         <p className="absolute text-xs bottom-0">
           All cryptocurrency data provided by{" "}
@@ -30,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default memo(Header);
+export default Header;

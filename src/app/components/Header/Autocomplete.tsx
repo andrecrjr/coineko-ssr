@@ -1,7 +1,7 @@
 // import { CurrencyItem, searchType } from 'src/Types';
 
-import { useFetch } from "@/app/hooks/useSWR";
-import { CurrencyItem, searchType } from "../../../../types";
+import { useFetch } from "@/app/hooks/useFetch";
+import { CurrencyItem, searchType } from "@/types";
 
 // import { StarPortfolioCurrency } from '../Table/Star';
 
