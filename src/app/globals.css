@@ -1,27 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+	body {
+		@apply  bg-[#ECECEC] min-h-screen;
+	}
+	.table--head {
+		@apply text-dark-purple-neko font-bold text-[0.77rem] py-[0.77rem] font-roboto;
+		@apply sm:text-[0.77rem];
+	}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	.table--body {
+		@apply text-center text-[0.90rem] font-roboto font-bold pt-4;
+		@apply lg:text-left;
+	}
+	.table--body:last-child {
+		@apply pr-5;
+	}
+
+	.table--body__coin {
+		@apply text-left text-[0.70rem] text-[#272727] leading-5 w-[180px];
+		@apply lg:pl-0 sm:w-auto;
+	}
+
+	.table--body__border{
+		@apply border-b-[24px] border-[transparent];
+	}
+
+	.table--body__line:last-child {
+		@apply border-b-[24px] border-[transparent];
+	}
+	.search{
+		@apply relative;
+	}
+	.search--box{
+		@apply w-full mb-3 mt-3 p-3 pr-14;
+	}
+	.suggest--box{
+		@apply absolute h-60 sm:h-52  bg-white w-full z-10 overflow-scroll overflow-x-hidden;
+	}
 }
