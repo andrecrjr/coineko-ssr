@@ -1,0 +1,14 @@
+[
+	{ "alias": "Cryptocurrency",
+	"path":"/"
+	 },
+	{ "alias": "NFT", "path":"nft" },
+	{
+		"alias": "DeFi", "path":"de-fi"
+	},
+	{ "alias": "Exchange", "path":"exchange" },
+	{
+		"alias": "Portfolio",
+		"path":"portfolio"
+	}
+]

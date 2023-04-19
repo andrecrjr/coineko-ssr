@@ -5,14 +5,17 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],
+  "jit":"true",
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
+		extend: {
+			fontFamily: {
+				roboto: 'Roboto'
+			},
+			colors: {
+				'purple-neko': '#9472d4',
+				'dark-purple-neko': '#6769AD'
+			}
+		}
+	},
   plugins: [],
 }
