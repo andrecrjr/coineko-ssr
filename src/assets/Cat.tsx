@@ -9,8 +9,11 @@ export default function Cat({
   alt: string;
 }) {
   return (
-    <>
-      <Image src={catSvg} alt={alt} loading="eager" className={className} />
-    </>
+    <Image
+      src={require("./cat.svg")}
+      alt={alt}
+      loading="eager"
+      className={className}
+    />
   );
 }

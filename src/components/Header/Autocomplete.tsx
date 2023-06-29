@@ -2,6 +2,7 @@
 
 import { useFetch } from "@/app/hooks/useFetch";
 import { CurrencyItem, searchType } from "@/types";
+import Image from "next/image";
 
 // import { StarPortfolioCurrency } from '../Table/Star';
 
@@ -31,13 +32,20 @@ export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
 };
 
 const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
+  console.log(currency);
   return (
     <div
       className="grid grid-cols-[25px_auto_auto] 
 						my-8 sm:my-3 mx-5 items-center"
     >
       {/* <StarPortfolioCurrency currencyId={currency.id} /> */}
-      <img src={currency.thumb} className="ml-4" width="25" height="25" />
+      <Image
+        src={currency.thumb}
+        className="ml-4"
+        width="19"
+        height="19"
+        alt={currency.name}
+      />
       <h3 className="text-sm break-before-auto overflow-hidden ml-4">
         {currency.name}
       </h3>
