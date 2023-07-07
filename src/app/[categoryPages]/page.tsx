@@ -1,4 +1,4 @@
-import { getMarketData } from "@/services/ApiService";
+import { fetchService } from "@/services/ApiService";
 import { convertFilterQueryString } from "@/utils";
 import { useRouter } from "next/router";
 
@@ -13,7 +13,7 @@ export default async function TablePages() {
   //   price_change_percentage: "1h,24h,7d",
   //   category: props.params.categoryPages,
   // });
-  // const data = await getMarketData(queryUrl);
+  // const data = await fetchService.getMarketData(queryUrl);
   // console.log(data);
   return <div>aaaaaaaaaaaaaaaa</div>;
 }

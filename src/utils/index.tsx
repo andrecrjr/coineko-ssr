@@ -10,3 +10,14 @@ export const convertFilterQueryString = (
   console.log("aaaaaaaaaaaa", filterResult);
   return filterResult;
 };
+
+export const formatterMoney = (
+  language = "en-US",
+  currency: {
+    style: "currency";
+    currency: "USD";
+  },
+  amount: number
+) => {
+  return new Intl.NumberFormat(language, currency).format(amount);
+};

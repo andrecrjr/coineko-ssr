@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
-import { fetchService, getMarketData } from "@/services/ApiService";
+import { fetchService } from "@/services/ApiService";
 import { convertFilterQueryString } from "@/utils";
+import { Table, WrapperTable } from "@/components/shared/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +16,12 @@ export default async function Home() {
     category: "cryptocurrency",
   });
 
-  const data = await getMarketData(queryUrl);
+  const data = await fetchService.getMarketData(queryUrl);
 
   console.log(data);
-  return <p>cryptocurrency</p>;
+  return (
+    <WrapperTable description="Price of the main cryptocurrencies by Market Capitalization.">
+      {data ? <Table data={data} /> : <p>Error</p>}
+    </WrapperTable>
+  );
 }
