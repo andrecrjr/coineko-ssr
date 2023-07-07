@@ -8,11 +8,11 @@ export const SearchBar = () => {
   const [suggestionItens, setSuggest] = useState<string>("");
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    // if (suggestionItens.length > 0) {
-    //   timeout = setTimeout(() => {
-    //     setSuggest("");
-    //   }, 6000);
-    // }
+    if (suggestionItens.length > 0) {
+      timeout = setTimeout(() => {
+        setSuggest("");
+      }, 6000);
+    }
     return () => {
       clearTimeout(timeout);
     };

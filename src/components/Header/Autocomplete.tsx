@@ -32,7 +32,6 @@ export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
 };
 
 const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
-  console.log(currency);
   return (
     <div
       className="grid grid-cols-[25px_auto_auto] 
