@@ -2,7 +2,7 @@ import { PageCurrencyQuery } from "@/types";
 
 export const convertFilterQueryString = (
   filterPaginationAndCategory: PageCurrencyQuery,
-  prepath: string
+  prepath: string = ""
 ) => {
   const filterResult = new URLSearchParams(
     filterPaginationAndCategory
