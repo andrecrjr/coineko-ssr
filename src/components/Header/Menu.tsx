@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { MenuOptions } from "./menu";
 import Link from "next/link";
-// import { PaginationContext } from 'src/state/Contexts';
-// import { Link, useLocation } from 'react-router-dom';
 
 const Menu = () => {
-  // const { setPagination } = useContext(PaginationContext);
-  // const { pathname } = useLocation();
-
   return (
     <nav
       className="w-full bg-purple-neko overflow-x-scroll 

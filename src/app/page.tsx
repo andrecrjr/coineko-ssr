@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { fetchService } from "@/services/ApiService";
 import { convertFilterQueryString } from "@/utils";
 import { Table, WrapperTable } from "@/components/shared/Layout";
+import { CurrencyList } from "@/types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,7 @@ export default async function Home() {
     category: "cryptocurrency",
   });
 
-  const data = await fetchService.getMarketData(queryUrl);
+  const data = await fetchService.getMarketData<CurrencyList>(queryUrl);
 
   console.log(data);
   return (

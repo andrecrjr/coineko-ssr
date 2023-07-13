@@ -1,28 +1,35 @@
-import { CurrencyList } from "@/types";
-import axios, { AxiosError, AxiosResponse } from "axios";
-
-export const axiosInstance = axios.create({
-  baseURL: "https://api.coingecko.com/api/v3/",
-});
-
 export const fetchService = {
+  async fetchCached<T>(path: string, options?: {}): Promise<T> {
+    return fetch(`https://api.coingecko.com/api/v3/${path}`, {
+      ...options,
+      next: { revalidate: 5000 },
+    })
+      .then(async (response) => {
+        const data = await response.json();
+        return data;
+      })
+      .catch((e) => {
+        console.log(e);
+        throw new Error("Problem to connect in API");
+      });
+  },
   async fetcher<T>(url: string): Promise<T> {
     try {
-      const { data } = await axiosInstance["get"]<T>(url);
+      const data = await this.fetchCached<T>(url);
+      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
       throw new Error(`Problem in API: ${error}`);
     }
   },
-  async getMarketData(urlParam: string) {
+  async getMarketData<T>(urlParam: string): Promise<T> {
     try {
-      const data = await this.fetcher<CurrencyList>(
-        `coins/markets?${urlParam}`
-      );
+      const data = await this.fetcher<T>(`coins/markets?${urlParam}`);
       return data;
     } catch (error: unknown) {
       console.log(error);
+      throw new Error("Problem in API");
     }
   },
 };
