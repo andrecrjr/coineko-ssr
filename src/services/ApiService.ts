@@ -9,17 +9,16 @@ export const fetchService = {
         return data;
       })
       .catch((e) => {
-        console.log(e);
+        console.error(e);
         throw new Error("Problem to connect in API");
       });
   },
   async fetcher<T>(url: string): Promise<T> {
     try {
       const data = await this.fetchCached<T>(url);
-      console.log(data);
       return data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw new Error(`Problem in API: ${error}`);
     }
   },
@@ -28,7 +27,7 @@ export const fetchService = {
       const data = await this.fetcher<T>(`${urlParam}`);
       return data;
     } catch (error: unknown) {
-      console.log(error);
+      console.error(error);
       throw new Error("Problem in API");
     }
   },

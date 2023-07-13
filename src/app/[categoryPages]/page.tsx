@@ -34,8 +34,8 @@ export default async function TablePages({ params }: Props) {
     },
     "/coins/markets?"
   );
-  console.log(queryUrl);
   const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
+
   const metadata = await fetchService.getFetchData<
     [{ category_id: string; name: string }]
   >("/coins/categories/list");

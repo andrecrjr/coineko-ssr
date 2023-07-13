@@ -15,14 +15,11 @@ export default async function Home() {
       sparkline: "true",
       page: "1",
       price_change_percentage: "1h,24h,7d",
-      category: "cryptocurrency",
     },
     "/coins/markets?"
   );
-  console.log(queryUrl);
   const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
 
-  console.log(data);
   return (
     <WrapperTable description="Price of the main cryptocurrencies by Market Capitalization.">
       {data ? <Table data={data} /> : <p>Error</p>}

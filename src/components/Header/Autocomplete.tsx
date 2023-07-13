@@ -11,7 +11,6 @@ export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
     `/search?query=${searchParam}`,
     "get"
   );
-  console.log(data);
 
   if (!isLoading && !!data)
     return (
