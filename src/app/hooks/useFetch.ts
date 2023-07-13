@@ -1,6 +1,5 @@
-import { AxiosResponse, Method } from "axios";
 import useSWR from "swr";
-import { axiosInstance, fetchService } from "@/services/ApiService";
+import { fetchService } from "@/services/ApiService";
 
 const defaultConfig = {
   revalidateOnFocus: true,
@@ -8,12 +7,12 @@ const defaultConfig = {
 
 export function useFetch<T>(
   path: string,
-  method: Method,
+  method: string = "get",
   swrOptions = defaultConfig
 ) {
   const { data, error, isLoading } = useSWR<T>(
     `${path}`,
-    fetchService,
+    fetchService.fetchCached,
     swrOptions
   );
   return { data, error, isLoading };

@@ -8,10 +8,12 @@ import Image from "next/image";
 
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
   const { data, isLoading } = useFetch<searchType>(
-    `search?query=${searchParam}`,
+    `/search?query=${searchParam}`,
     "get"
   );
-  if (!isLoading)
+  console.log(data);
+
+  if (!isLoading && !!data)
     return (
       <ul className="suggest--box" role="listbox">
         {data &&

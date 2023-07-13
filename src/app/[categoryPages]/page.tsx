@@ -7,10 +7,10 @@ type Props = {
   params: { categoryPages: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-export async function generateMetadata(
-  { params, searchParams }: Props,
-  parent?: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
   const id = params.categoryPages;
   const metadata = await fetchService.getFetchData<
     [{ category_id: string; name: string }]
