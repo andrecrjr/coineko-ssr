@@ -1,14 +1,21 @@
 import { PageCurrencyQuery } from "@/types";
 
 export const convertFilterQueryString = (
-  filterPaginationAndCategory: PageCurrencyQuery
+  filterPaginationAndCategory: PageCurrencyQuery,
+  prepath: string
 ) => {
-  console.log(URLSearchParams);
   const filterResult = new URLSearchParams(
     filterPaginationAndCategory
   ).toString();
-  console.log("aaaaaaaaaaaa", filterResult);
-  return filterResult;
+  return prepath + filterResult;
+};
+
+export const getMetadataName = (
+  metadata: [{ category_id: string; name: string }],
+  id: string
+) => {
+  const titleSection = metadata.filter((item) => item.category_id === id)[0];
+  return titleSection;
 };
 
 export const formatterMoney = (

@@ -2,7 +2,7 @@
 	{ "alias": "Cryptocurrency",
 	"path":"/"
 	 },
-	{ "alias": "NFT", "path":"non-funginble-token" },
+	{ "alias": "NFT", "path":"non-fungible-tokens-nft" },
 	{
 		"alias": "DeFi", "path":"decentralized-finance-defi"
 	},

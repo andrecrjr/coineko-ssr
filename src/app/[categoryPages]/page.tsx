@@ -1,27 +1,50 @@
 import { Table, WrapperTable } from "@/components/shared/Layout";
 import { fetchService } from "@/services/ApiService";
 import { CurrencyList } from "@/types";
-import { convertFilterQueryString } from "@/utils";
-
-export default async function TablePages({
-  params,
-}: {
+import { convertFilterQueryString, getMetadataName } from "@/utils";
+import { Metadata, ResolvingMetadata } from "next";
+type Props = {
   params: { categoryPages: string };
-}) {
-  const queryUrl = convertFilterQueryString({
-    vs_currency: "usd",
-    order: "market_cap_desc",
-    per_page: "50",
-    sparkline: "true",
-    page: "1",
-    price_change_percentage: "1h,24h,7d",
-    category: params.categoryPages,
-  });
-  const data = await fetchService.getMarketData<CurrencyList>(queryUrl);
-  console.log(data);
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const id = params.categoryPages;
+  const metadata = await fetchService.getFetchData<
+    [{ category_id: string; name: string }]
+  >("/coins/categories/list");
+  const titleSection = getMetadataName(metadata, id);
+  return {
+    title: titleSection?.name,
+  };
+}
+
+export default async function TablePages({ params }: Props) {
+  const queryUrl = convertFilterQueryString(
+    {
+      vs_currency: "usd",
+      order: "market_cap_desc",
+      per_page: "50",
+      sparkline: "true",
+      page: "1",
+      price_change_percentage: "1h,24h,7d",
+      category: params.categoryPages,
+    },
+    "/coins/markets?"
+  );
+  console.log(queryUrl);
+  const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
+  const metadata = await fetchService.getFetchData<
+    [{ category_id: string; name: string }]
+  >("/coins/categories/list");
+  const titleSection = getMetadataName(metadata, params.categoryPages);
 
   return (
-    <WrapperTable description="Price of the main cryptocurrencies by Market Capitalization.">
+    <WrapperTable
+      description={`${titleSection.name} currencies by Market Capitalization.`}
+    >
       {data ? <Table data={data} /> : <p>Error</p>}
     </WrapperTable>
   );

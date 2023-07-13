@@ -1,6 +1,6 @@
 export const fetchService = {
   async fetchCached<T>(path: string, options?: {}): Promise<T> {
-    return fetch(`https://api.coingecko.com/api/v3/${path}`, {
+    return fetch(`https://api.coingecko.com/api/v3${path}`, {
       ...options,
       next: { revalidate: 5000 },
     })
@@ -23,9 +23,9 @@ export const fetchService = {
       throw new Error(`Problem in API: ${error}`);
     }
   },
-  async getMarketData<T>(urlParam: string): Promise<T> {
+  async getFetchData<T>(urlParam: string): Promise<T> {
     try {
-      const data = await this.fetcher<T>(`coins/markets?${urlParam}`);
+      const data = await this.fetcher<T>(`${urlParam}`);
       return data;
     } catch (error: unknown) {
       console.log(error);
