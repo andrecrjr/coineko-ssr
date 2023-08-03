@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { formatterMoney } from "@/utils";
 import { Currency } from "@/types";
+import StarPortfolioCurrency from "./StarPortfolioCurrency";
 
 const ColumnCurrencyInfoGrid = ({
   currency,
@@ -53,8 +54,8 @@ const ColumnCurrencyInfoGrid = ({
 const CurrencyChild = ({ currency }: { currency: Currency }) => {
   return (
     <tr className="table--body__line pt-4">
-      <td className="table--body w-[35px] pl-2 sm:pl-6">
-        {/* <StarPortfolioCurrency currencyId={currency.id} /> */}
+      <td className="table--body w-[35px] pl-2">
+        <StarPortfolioCurrency currencyId={currency.id} />
       </td>
 
       <ColumnCurrencyInfoGrid currency={currency} />

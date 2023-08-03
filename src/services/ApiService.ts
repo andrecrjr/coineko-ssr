@@ -13,7 +13,7 @@ export const fetchService = {
         throw new Error("Problem to connect in API");
       });
   },
-  async fetcher<T>(url: string): Promise<T> {
+  async fetchData<T>(url: string): Promise<T> {
     try {
       const data = await this.fetchCached<T>(url);
       return data;
@@ -24,7 +24,7 @@ export const fetchService = {
   },
   async getFetchData<T>(urlParam: string): Promise<T> {
     try {
-      const data = await this.fetcher<T>(`${urlParam}`);
+      const data = await this.fetchData<T>(`${urlParam}`);
       return data;
     } catch (error: unknown) {
       console.error(error);

@@ -28,3 +28,25 @@ export const formatterMoney = (
 ) => {
   return new Intl.NumberFormat(language, currency).format(amount);
 };
+
+export const storageObject = {
+  get: <T,>(storageKey: string): T => {
+    const data =
+      globalThis?.localStorage?.getItem(storageKey) || JSON.stringify([]);
+    return JSON.parse(data);
+  },
+  set: (storageKey: string, setData: string[]): boolean => {
+    if (!setData) throw new Error("No data to set in localstorage");
+    globalThis?.localStorage?.setItem(storageKey, JSON.stringify(setData));
+    return true;
+  },
+};
+
+export const addToPortfolio = (newData: string | null) => {
+  const portfolioData = storageObject.get<[]>("portfolio");
+  console.log(portfolioData);
+  if (newData) {
+    return [...portfolioData, newData];
+  }
+  return [...portfolioData];
+};
