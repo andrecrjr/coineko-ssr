@@ -9,7 +9,7 @@ export const portFolioManagement = {
       storageObject.set("portfolio", portfolioData);
       return;
     }
-    return portfolioData;
+    return;
   },
   removePortfolio: (currencyId: string) => {
     const portfolioData = storageObject.get<string[]>("portfolio");
@@ -17,7 +17,6 @@ export const portFolioManagement = {
       const updatedPortfolio = [
         ...portfolioData.filter((id) => id !== currencyId),
       ];
-      console.log(updatedPortfolio);
       storageObject.set("portfolio", updatedPortfolio);
     }
     return;
