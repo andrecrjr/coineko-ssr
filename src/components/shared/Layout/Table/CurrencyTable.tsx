@@ -4,6 +4,7 @@ import Image from "next/image";
 import { formatterMoney } from "@/utils";
 import { Currency } from "@/types";
 import StarPortfolioCurrency from "./StarPortfolioCurrency";
+import Sparkline from "../../Sparkline";
 
 const ColumnCurrencyInfoGrid = ({
   currency,
@@ -79,7 +80,7 @@ const CurrencyChild = ({ currency }: { currency: Currency }) => {
         formatPrice={currency?.market_cap || 0}
       />
       <td className="table--body">
-        {/* {currency.sparkline_in_7d?.price && (
+        {currency.sparkline_in_7d?.price && (
           <Sparkline
             datasetSpark={currency?.sparkline_in_7d.price}
             color={
@@ -89,7 +90,7 @@ const CurrencyChild = ({ currency }: { currency: Currency }) => {
                 : "red"
             }
           />
-        )} */}
+        )}
       </td>
     </tr>
   );
