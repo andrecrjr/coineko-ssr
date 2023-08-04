@@ -22,8 +22,8 @@
 	}
 
 	.table--body__coin {
-		@apply text-left text-[0.70rem] text-[#272727] leading-5 w-[180px];
-		@apply lg:pl-0 sm:w-auto;
+		@apply flex text-left text-[0.70rem] text-[#272727] leading-5 min-w-[170px];
+		@apply lg:pl-0 md:static;
 	}
 
 	.table--body__border{
@@ -43,3 +43,9 @@
 		@apply absolute h-60 sm:h-52  bg-white w-full z-10 overflow-scroll overflow-x-hidden;
 	}
 }
+
+	@media screen and (max-width:840px) {
+		.table--fix {
+			@apply bg-[#DEDEDE] fixed;
+		}
+	}

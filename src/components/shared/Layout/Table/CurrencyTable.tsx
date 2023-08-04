@@ -15,12 +15,12 @@ const ColumnCurrencyInfoGrid = ({
     <>
       <td
         className="table--body text-left
-			text-dark-purple-neko font-bold overflow-scroll sm:overflow-auto pl-3 "
+			text-dark-purple-neko font-bold overflow-scroll sm:overflow-auto pl-3"
       >
         {currency?.market_cap_rank || "..."}
       </td>
       <td className="table--body table--body__coin">
-        <section className="grid grid-cols-[1fr_100px] sm:grid-cols-[30px_auto] md:auto-rows-max">
+        <section className="grid grid-cols-[1fr_100px] sm:grid-cols-[30px_auto] md:auto-rows-max  table--fix">
           <Image
             src={`${
               currency?.image.replace("large", "thumb") ||
@@ -55,7 +55,7 @@ const ColumnCurrencyInfoGrid = ({
 const CurrencyChild = ({ currency }: { currency: Currency }) => {
   return (
     <tr className="table--body__line pt-4">
-      <td className="table--body w-[35px] pl-2">
+      <td className="table--body w-[35px] pl-2 table--star">
         <StarPortfolioCurrency currencyId={currency.id} />
       </td>
 

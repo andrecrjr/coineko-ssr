@@ -23,14 +23,14 @@ export default function StarPortfolioCurrency({
     <SvgAsset
       options={{
         alt: "Favorite currency",
-        width: "30",
-        height: "30",
+        width: "25",
+        height: "25",
         src: `${
           currenciesTemp?.some((item) => item === currencyId)
             ? assetList["starPurple"]
             : assetList["star"]
         }`,
-        className: "w-10",
+        className: "w-10 max-w-[30px]",
         onClick: (e) => {
           e.preventDefault();
           if (currenciesTemp?.some((currency) => currency === currencyId)) {
