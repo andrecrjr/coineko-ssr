@@ -41,12 +41,3 @@ export const storageObject = {
     return true;
   },
 };
-
-export const addToPortfolio = (newData: string | null) => {
-  const portfolioData = storageObject.get<[]>("portfolio");
-  console.log(portfolioData);
-  if (newData) {
-    return [...portfolioData, newData];
-  }
-  return [...portfolioData];
-};

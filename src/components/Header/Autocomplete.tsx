@@ -3,6 +3,7 @@
 import { useFetch } from "@/app/hooks/useFetch";
 import { CurrencyItem, searchType } from "@/types";
 import Image from "next/image";
+import StarPortfolioCurrency from "../shared/Layout/Table/StarPortfolioCurrency";
 
 // import { StarPortfolioCurrency } from '../Table/Star';
 
@@ -38,7 +39,7 @@ const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
       className="grid grid-cols-[25px_auto_auto] 
 						my-8 sm:my-3 mx-5 items-center"
     >
-      {/* <StarPortfolioCurrency currencyId={currency.id} /> */}
+      <StarPortfolioCurrency currencyId={currency.id} />
       <Image
         src={currency.thumb}
         className="ml-4"

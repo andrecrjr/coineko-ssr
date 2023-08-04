@@ -4,27 +4,21 @@ import React, { useEffect, useState } from "react";
 import SvgAsset from "@/assets/IconSvg";
 import { assetList } from "@/assets";
 import { storageObject } from "@/utils";
-import { setPortfolio } from "@/reducers/portfolio";
+import { portFolioManagement } from "@/services/PortfolioService";
 
 export default function StarPortfolioCurrency({
   currencyId,
 }: {
   currencyId: string;
 }) {
-  const userCurrency = storageObject.get<string[]>("portfolio");
+  const userCurrencyPortfolioStorage = storageObject.get<string[]>("portfolio");
   const [currenciesTemp, setCurrency] = useState<string[]>([]);
-  console.log(currenciesTemp);
+
   useEffect(() => {
-    setCurrency(userCurrency);
+    setCurrency(userCurrencyPortfolioStorage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  useEffect(() => {
-    console.log("currency update");
-    // setPortfolio(userCurrency, {
-    //   type: "ADD_ALL_CURRENCY_STATE",
-    //   payload: "",
-    //   arrayPayload: [...currenciesTemp, currencyId],
-    // });
-  }, [currenciesTemp]);
+
   return (
     <SvgAsset
       options={{
@@ -39,30 +33,17 @@ export default function StarPortfolioCurrency({
         className: "w-10",
         onClick: (e) => {
           e.preventDefault();
-
           if (currenciesTemp?.some((currency) => currency === currencyId)) {
             //remove local state
-            console.log("entrou aqui");
             setCurrency((oldCurrencies) => {
-              // setPortfolio(userCurrency, {
-              //   type: "ADD_ALL_CURRENCY_STATE",
-              //   payload: "",
-              //   arrayPayload: [
-              //     ...oldCurrencies.filter((id) => id !== currencyId),
-              //   ],
-              // });
-              // console.log(oldCurrencies);
               return [...oldCurrencies.filter((id) => id !== currencyId)];
             });
-
+            portFolioManagement.removePortfolio(currencyId);
             return;
           }
 
-          //update react state WITH localStorage
-          setCurrency((oldCurrencies) => {
-            //update react state
-            return [...oldCurrencies, currencyId];
-          });
+          setCurrency((oldCurrencies) => [...oldCurrencies, currencyId]);
+          portFolioManagement.addToPortfolio(currencyId);
         },
       }}
       data-crypto={currencyId}
