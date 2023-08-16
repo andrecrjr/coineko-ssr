@@ -6,11 +6,7 @@ import { assetList } from "@/assets";
 import { storageObject } from "@/utils";
 import { portFolioManagement } from "@/services/PortfolioService";
 
-export default function StarPortfolioCurrency({
-  currencyId,
-}: {
-  currencyId: string;
-}) {
+function StarPortfolioCurrency({ currencyId }: { currencyId: string }) {
   const userCurrencyPortfolioStorage = storageObject.get<string[]>("portfolio");
   const [currenciesTemp, setCurrency] = useState<string[]>([]);
 
@@ -51,3 +47,5 @@ export default function StarPortfolioCurrency({
     />
   );
 }
+
+export { StarPortfolioCurrency };

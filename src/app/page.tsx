@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import { fetchService } from "@/services/ApiService";
 import { convertFilterQueryString } from "@/utils";
-import { Table } from "@/components/shared/Layout";
 import { CurrencyList } from "@/types";
 import { Page } from "@/components/Page";
+import { Table } from "@/components/shared";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 
-import { Table } from "@/components/shared/Layout";
-
 import { fetchService } from "@/services/ApiService";
 
 import { CurrencyList } from "@/types";
 
 import { convertFilterQueryString, getMetadataName } from "@/utils";
 import { Page } from "@/components/Page";
+import { Table } from "@/components/shared";
 
 type Props = {
   params: { categoryPages: string };

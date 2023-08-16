@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { formatterMoney } from "@/utils";
 import { Currency } from "@/types";
-import StarPortfolioCurrency from "./StarPortfolioCurrency";
+
 import Sparkline from "../../Sparkline";
+import { StarPortfolioCurrency } from "../StarPortfolioCurrency";
 
 const ColumnCurrencyInfoGrid = ({
   currency,
