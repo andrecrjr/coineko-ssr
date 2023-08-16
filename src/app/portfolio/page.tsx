@@ -1,5 +1,10 @@
+import TablePage from "@/components/Page/TablePage";
 import React from "react";
 
 export default function index() {
-  return <div>Portfolio do Usuario</div>;
+  return (
+    <TablePage description="Your portfolio, with yours starred currencies in the Coineko.">
+      <p>Em breve</p>
+    </TablePage>
+  );
 }

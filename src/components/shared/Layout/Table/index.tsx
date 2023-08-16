@@ -1,6 +1,5 @@
 import { CurrencyList } from "@/src/Types";
 import { CurrencyTable } from "./CurrencyTable";
-import { WrapperTable } from "./WrapperTable";
 
 interface Props {
   data: CurrencyList;
@@ -45,4 +44,4 @@ const Table = ({ data }: Props) => {
   );
 };
 
-export { Table, CurrencyTable, WrapperTable };
+export { Table, CurrencyTable };

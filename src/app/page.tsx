@@ -1,8 +1,9 @@
 import { Inter } from "next/font/google";
 import { fetchService } from "@/services/ApiService";
 import { convertFilterQueryString } from "@/utils";
-import { Table, WrapperTable } from "@/components/shared/Layout";
+import { Table } from "@/components/shared/Layout";
 import { CurrencyList } from "@/types";
+import TablePage from "@/components/Page/TablePage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,8 @@ export default async function Home() {
   const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
 
   return (
-    <WrapperTable description="Price of the main cryptocurrencies by Market Capitalization.">
-      {data ? <Table data={data} /> : <p>Error</p>}
-    </WrapperTable>
+    <TablePage description="Price of the main cryptocurrencies by Market Capitalization.">
+      {data ? <Table data={data} /> : <p>Error to get data, try again later</p>}
+    </TablePage>
   );
 }

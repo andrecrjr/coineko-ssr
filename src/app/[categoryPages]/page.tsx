@@ -1,8 +1,14 @@
-import { Table, WrapperTable } from "@/components/shared/Layout";
+import { Metadata } from "next";
+
+import TablePage from "@/components/Page/TablePage";
+import { Table } from "@/components/shared/Layout";
+
 import { fetchService } from "@/services/ApiService";
+
 import { CurrencyList } from "@/types";
+
 import { convertFilterQueryString, getMetadataName } from "@/utils";
-import { Metadata, ResolvingMetadata } from "next";
+
 type Props = {
   params: { categoryPages: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -42,10 +48,10 @@ export default async function TablePages({ params }: Props) {
   const titleSection = getMetadataName(metadata, params.categoryPages);
 
   return (
-    <WrapperTable
+    <TablePage
       description={`${titleSection.name} currencies by Market Capitalization.`}
     >
       {data ? <Table data={data} /> : <p>Error</p>}
-    </WrapperTable>
+    </TablePage>
   );
 }

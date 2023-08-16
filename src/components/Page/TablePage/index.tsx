@@ -1,7 +1,7 @@
 import React from "react";
-import Page from "../Page";
+import Page from "../";
 
-export function WrapperTable({
+export default function TablePage({
   children,
   description,
 }: {
