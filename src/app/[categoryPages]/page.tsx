@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 
-import TablePage from "@/components/Page/TablePage";
 import { Table } from "@/components/shared/Layout";
 
 import { fetchService } from "@/services/ApiService";
@@ -8,6 +7,7 @@ import { fetchService } from "@/services/ApiService";
 import { CurrencyList } from "@/types";
 
 import { convertFilterQueryString, getMetadataName } from "@/utils";
+import { Page } from "@/components/Page";
 
 type Props = {
   params: { categoryPages: string };
@@ -48,10 +48,10 @@ export default async function TablePages({ params }: Props) {
   const titleSection = getMetadataName(metadata, params.categoryPages);
 
   return (
-    <TablePage
+    <Page
       description={`${titleSection.name} currencies by Market Capitalization.`}
     >
       {data ? <Table data={data} /> : <p>Error</p>}
-    </TablePage>
+    </Page>
   );
 }

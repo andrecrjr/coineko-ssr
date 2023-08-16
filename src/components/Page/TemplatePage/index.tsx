@@ -1,7 +1,6 @@
 import React from "react";
-import Page from "../";
 
-export default function TablePage({
+function Page({
   children,
   description,
 }: {
@@ -9,7 +8,7 @@ export default function TablePage({
   description: string;
 }) {
   return (
-    <Page>
+    <section className="flex flex-col justify-center sm:items-center ml-2 sm:ml-0 relative">
       <section className="flex items-center mt-8 w-10/12 mb-2 md:mb-5 md:mt-10">
         <span>{/* <Cat className="w-[35px] h-[35px]" /> */}</span>
         <h3 className="text-xs text-left items-start md:text-base">
@@ -17,6 +16,8 @@ export default function TablePage({
         </h3>
       </section>
       {children}
-    </Page>
+    </section>
   );
 }
+
+export { Page };
