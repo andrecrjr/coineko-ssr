@@ -4,7 +4,7 @@ import React from "react";
 
 export default function index() {
   return (
-    <Page description="Your portfolio, with yours starred currencies in the Coineko.">
+    <Page description="Your portfolio, with your starred currencies in Coineko.">
       <PortfolioClientPage />
     </Page>
   );

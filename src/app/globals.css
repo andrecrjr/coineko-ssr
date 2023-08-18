@@ -40,12 +40,6 @@
 		@apply w-full mb-3 mt-3 p-3 pr-14;
 	}
 	.suggest--box{
-		@apply absolute h-60 sm:h-52  bg-white w-full z-10 overflow-scroll overflow-x-hidden;
+		@apply h-60 sm:h-52  bg-white w-full z-10 overflow-scroll overflow-x-hidden;
 	}
 }
-
-	@media screen and (max-width:840px) {
-		.table--fix {
-			@apply bg-[#DEDEDE] fixed;
-		}
-	}
