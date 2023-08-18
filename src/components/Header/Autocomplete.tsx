@@ -1,6 +1,5 @@
-// import { CurrencyItem, searchType } from 'src/Types';
+import { useFetch } from "../Hooks/useFetch";
 
-import { useFetch } from "@/app/hooks/useFetch";
 import { CurrencyItem, searchType } from "@/types";
 import Image from "next/image";
 import { StarPortfolioCurrency } from "../shared";

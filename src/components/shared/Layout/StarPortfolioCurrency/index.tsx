@@ -3,15 +3,15 @@
 import React, { useEffect, useState } from "react";
 import SvgAsset from "@/assets/IconSvg";
 import { assetList } from "@/assets";
-import { storageObject } from "@/utils";
-import { portFolioManagement } from "@/services/PortfolioService";
+import usePortfolioData from "@/components/Hooks/usePortfolioData";
 
 function StarPortfolioCurrency({ currencyId }: { currencyId: string }) {
-  const userCurrencyPortfolioStorage = storageObject.get<string[]>("portfolio");
+  const { userPortfolioData, addPortfolio, removePortfolio } =
+    usePortfolioData();
   const [currenciesTemp, setCurrency] = useState<string[]>([]);
 
   useEffect(() => {
-    setCurrency(userCurrencyPortfolioStorage);
+    setCurrency(userPortfolioData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -34,12 +34,12 @@ function StarPortfolioCurrency({ currencyId }: { currencyId: string }) {
             setCurrency((oldCurrencies) => {
               return [...oldCurrencies.filter((id) => id !== currencyId)];
             });
-            portFolioManagement.removePortfolio(currencyId);
+            removePortfolio(currencyId);
             return;
           }
 
           setCurrency((oldCurrencies) => [...oldCurrencies, currencyId]);
-          portFolioManagement.addToPortfolio(currencyId);
+          addPortfolio(currencyId);
         },
       }}
       data-crypto={currencyId}
