@@ -6,12 +6,13 @@ import { CurrencyList } from "@/types";
 
 import { convertFilterQueryString, getMetadataName } from "@/utils";
 import { Page } from "@/components/Page";
-import { Table } from "@/components/shared";
+import {  TableComposition } from "@/components/shared/Layout";
 
 type Props = {
   params: { categoryPages: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
+
 export async function generateMetadata({
   params,
   searchParams,
@@ -50,7 +51,7 @@ export default async function TablePages({ params }: Props) {
     <Page
       description={`${titleSection.name} currencies by Market Capitalization.`}
     >
-      {data ? <Table data={data} /> : <p>Error</p>}
+      {data ? <TableComposition data={data}/> : <p>Error</p>}
     </Page>
   );
 }

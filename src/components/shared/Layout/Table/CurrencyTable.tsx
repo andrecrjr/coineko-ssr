@@ -1,11 +1,10 @@
-// import Sparkline from "../Charts";
-// import { StarPortfolioCurrency } from "./Star";
 import Image from "next/image";
 import { formatterMoney } from "@/utils";
 import { Currency } from "@/types";
 
 import Sparkline from "../../Sparkline";
 import { StarPortfolioCurrency } from "../StarPortfolioCurrency";
+import { ColumnPercentageCurrency } from "./PercentageComponent";
 
 const ColumnCurrencyInfoGrid = ({
   currency,
@@ -120,37 +119,18 @@ const ColumnMoneyFormatter = ({
   );
 };
 
-const ColumnPercentageCurrency = ({
-  currencyNumber,
-  role,
-}: {
-  currencyNumber: number | undefined;
-  role?: string;
-}) => {
-  return (
-    <td
-      className={`table--body  ${
-        currencyNumber && currencyNumber > 0 ? "text-green-500" : "text-red-600"
-      }`}
-      aria-label={role}
-    >
-      {(currencyNumber && currencyNumber.toFixed(2)) || "0.00"}%
-    </td>
-  );
-};
-
-export const CurrencyTable = ({
+export const BodyTable = ({
   currencyList,
 }: {
   currencyList: Currency[];
 }) => {
   if (currencyList?.length > 0)
     return (
-      <>
+      <tbody>
         {currencyList.map((currency: Currency) => (
           <CurrencyChild key={currency.name} currency={currency} />
         ))}
-      </>
+      </tbody>
     );
   return <></>;
 };
