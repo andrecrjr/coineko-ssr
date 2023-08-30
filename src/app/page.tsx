@@ -4,7 +4,7 @@ import { convertFilterQueryString } from "@/utils";
 import { CurrencyList } from "@/types";
 import { Page } from "@/components/Page";
 
-import TableComposition from "@/components/shared/Layout/Table/TableComposition";
+import HomePage from "@/components/Page/HomePage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +23,6 @@ export default async function Home() {
   const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
 
   return (
-    <Page description="Price of the main cryptocurrencies by Market Capitalization.">
-      {data ? <TableComposition data={data||[]}/> : <p>Error to get data, try again later</p>}
-    </Page>
+    <HomePage data={data} />
   );
 }

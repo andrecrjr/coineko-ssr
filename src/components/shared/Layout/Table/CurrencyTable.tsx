@@ -124,6 +124,7 @@ export const BodyTable = ({
 }: {
   currencyList: Currency[];
 }) => {
+
   if (currencyList?.length > 0)
     return (
       <tbody>
@@ -132,5 +133,6 @@ export const BodyTable = ({
         ))}
       </tbody>
     );
+
   return <></>;
 };
