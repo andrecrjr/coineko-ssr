@@ -13,7 +13,15 @@ export type PageCurrencyQuery = {
 
 export type Currency = typeof currencyList;
 
-export type CurrencyList = Currency[];
+export type CoinGeckoDataRateLimit = {
+  status: {
+    error_code: number;
+    error_message: string;
+  }
+}
+
+
+export type CurrencyList = Currency[] & CoinGeckoDataRateLimit;
 
 export type PaginationState = {
   number: number;

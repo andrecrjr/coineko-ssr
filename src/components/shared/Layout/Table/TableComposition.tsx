@@ -9,6 +9,7 @@ interface TableProps{
 }
 
 export default function TableComposition({data}:TableProps){
+    
     return (
         <Table>
             <HeadTable />

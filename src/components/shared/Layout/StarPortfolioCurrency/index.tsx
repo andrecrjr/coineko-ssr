@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import SvgAsset from "@/assets/IconSvg";
 import { assetList } from "@/assets";
