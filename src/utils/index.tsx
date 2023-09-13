@@ -1,8 +1,8 @@
-import { PageCurrencyQuery } from "@/types";
+import { PageCurrencyQuery } from '@/types';
 
 export const convertFilterQueryString = (
   filterPaginationAndCategory: PageCurrencyQuery,
-  prepath: string = ""
+  prepath: string = ''
 ) => {
   const filterResult = new URLSearchParams(
     filterPaginationAndCategory
@@ -19,10 +19,10 @@ export const getMetadataName = (
 };
 
 export const formatterMoney = (
-  language = "en-US",
+  language = 'en-US',
   currency: {
-    style: "currency";
-    currency: "USD";
+    style: 'currency';
+    currency: 'USD';
   },
   amount: number
 ) => {
@@ -36,7 +36,7 @@ export const storageObject = {
     return JSON.parse(data);
   },
   set: (storageKey: string, setData: string[]): boolean => {
-    if (!setData) throw new Error("No data to set in localstorage");
+    if (!setData) throw new Error('No data to set in localstorage');
     globalThis?.localStorage?.setItem(storageKey, JSON.stringify(setData));
     return true;
   },

@@ -9,11 +9,11 @@ export const ColumnPercentageCurrency = ({
   return (
     <td
       className={`table--body  ${
-        currencyNumber && currencyNumber > 0 ? "text-green-500" : "text-red-600"
+        currencyNumber && currencyNumber > 0 ? 'text-green-500' : 'text-red-600'
       }`}
       aria-label={role}
     >
-      {(currencyNumber && currencyNumber.toFixed(2)) || "0.00"}%
+      {(currencyNumber && currencyNumber.toFixed(2)) || '0.00'}%
     </td>
   );
 };

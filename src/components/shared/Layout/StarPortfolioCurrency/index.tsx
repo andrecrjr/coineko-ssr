@@ -1,8 +1,8 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import SvgAsset from "@/assets/IconSvg";
-import { assetList } from "@/assets";
-import usePortfolioData from "@/components/Hooks/usePortfolioData";
+'use client';
+import React, { useEffect, useState } from 'react';
+import SvgAsset from '@/assets/IconSvg';
+import { assetList } from '@/assets';
+import usePortfolioData from '@/components/Hooks/usePortfolioData';
 
 function StarPortfolioCurrency({ currencyId }: { currencyId: string }) {
   const { userPortfolioData, addPortfolio, removePortfolio } =
@@ -17,15 +17,15 @@ function StarPortfolioCurrency({ currencyId }: { currencyId: string }) {
   return (
     <SvgAsset
       options={{
-        alt: "Favorite currency",
-        width: "25",
-        height: "25",
+        alt: 'Favorite currency',
+        width: '25',
+        height: '25',
         src: `${
           currenciesTemp?.some((item) => item === currencyId)
-            ? assetList["starPurple"]
-            : assetList["star"]
+            ? assetList['starPurple']
+            : assetList['star']
         }`,
-        className: "w-10 max-w-[30px]",
+        className: 'w-10 max-w-[30px]',
         onClick: (e) => {
           e.preventDefault();
           if (currenciesTemp?.some((currency) => currency === currencyId)) {

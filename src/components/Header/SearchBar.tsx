@@ -1,18 +1,20 @@
-"use client";
-import { FormEvent, useEffect, useState } from "react";
-import { AutoComplete } from "./Autocomplete";
-import { MdClear, MdSearch } from "react-icons/md";
+'use client';
+import { FormEvent, useEffect, useState } from 'react';
+import { AutoComplete } from './Autocomplete';
+import { MdClear, MdSearch } from 'react-icons/md';
 
 export const SearchBar = () => {
-  const [search, setSearch] = useState("");
-  const [suggestionItens, setSuggest] = useState<string>("");
+  const [search, setSearch] = useState('');
+  const [suggestionItens, setSuggest] = useState<string>('');
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     let timeout: NodeJS.Timeout;
     if (suggestionItens.length > 0) {
       timeout = setTimeout(() => {
-        setSuggest("");
+        setSuggest('');
       }, 6000);
     }
+
     return () => {
       clearTimeout(timeout);
     };
@@ -50,7 +52,7 @@ export const SearchBar = () => {
       >
         <MdSearch size={25} />
       </button>
-      {suggestionItens !== "" && search !== "" && (
+      {suggestionItens !== '' && search !== '' && (
         <button
           className="absolute top-0 right-0 bottom-0 pr-20"
           role="button"
@@ -58,14 +60,14 @@ export const SearchBar = () => {
           aria-label="Clear search box"
           onClick={(e) => {
             e.preventDefault();
-            setSearch("");
-            setSuggest("");
+            setSearch('');
+            setSuggest('');
           }}
         >
           <MdClear size={25} />
         </button>
       )}
-      {suggestionItens !== "" && <AutoComplete searchParam={suggestionItens} />}
+      {suggestionItens !== '' && <AutoComplete searchParam={suggestionItens} />}
     </form>
   );
 };

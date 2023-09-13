@@ -1,5 +1,5 @@
-import useSWR from "swr";
-import { fetchService } from "@/services/ApiService";
+import useSWR from 'swr';
+import { fetchService } from '@/services/ApiService';
 
 const defaultConfig = {
   revalidateOnFocus: true,
@@ -7,7 +7,6 @@ const defaultConfig = {
 
 export function useFetch<T>(
   path: string,
-  method: string = "get",
   swrOptions = defaultConfig
 ) {
   const { data, error, isLoading } = useSWR<T>(

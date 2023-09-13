@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function HeadTable() {
   return (
@@ -25,5 +25,5 @@ export function HeadTable() {
           </td>
         </tr>
     </thead>
-  )
+  );
 }

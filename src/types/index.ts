@@ -1,5 +1,5 @@
-import { Dispatch } from "react";
-import currencyList from "./currencyListApi.json";
+import { Dispatch, SetStateAction } from 'react';
+import currencyList from './currencyListApi.json';
 
 export type PageCurrencyQuery = {
   vs_currency: string;
@@ -25,12 +25,12 @@ export type CurrencyList = Currency[] & CoinGeckoDataRateLimit;
 
 export type PaginationState = {
   number: number;
-  firstOrPagination: "current" | "pagination";
+  firstOrPagination: 'current' | 'pagination';
 };
 
 export type Pagination = {
   page: PaginationState;
-  setPagination: React.Dispatch<React.SetStateAction<PaginationState>>;
+  setPagination: Dispatch<SetStateAction<PaginationState>>;
 };
 
 export type PortfolioType = {

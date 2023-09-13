@@ -1,2 +1,2 @@
-export * from "./TemplatePage";
-export * from "./PortfolioClientPage";
+export * from './TemplatePage';
+export * from './PortfolioClientPage';

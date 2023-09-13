@@ -1,6 +1,6 @@
-import React from "react";
-import { MenuOptions } from "./menu";
-import Link from "next/link";
+import React from 'react';
+import { MenuOptions } from './menu';
+import Link from 'next/link';
 
 const Menu = () => {
   return (
@@ -17,7 +17,7 @@ const Menu = () => {
             key={index}
           >
             <li
-              className={`text-sm pr-10 leading-5 first:pl-4 last:pr-4 font-roboto`}
+              className={'text-sm pr-10 leading-5 first:pl-4 last:pr-4 font-roboto'}
               data-testid={`button-${item.alias.toLowerCase()}`}
             >
               {item.alias}

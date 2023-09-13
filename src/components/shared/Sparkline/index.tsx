@@ -1,5 +1,5 @@
-"use client";
-import { Line } from "react-chartjs-2";
+'use client';
+import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,7 +8,7 @@ import {
   LineElement,
   Title,
   Tooltip,
-} from "chart.js";
+} from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
@@ -28,14 +28,14 @@ function Sparkline({
 }) {
   return (
     <Line
-      width={"120"}
-      height={"50"}
+      width={'120'}
+      height={'50'}
       options={{
         scales: { x: { display: false }, y: { display: false } },
         responsive: false,
         elements: {
           line: {
-            borderColor: `${color || "#9472d4"}`,
+            borderColor: `${color || '#9472d4'}`,
             borderWidth: 1,
           },
           point: {

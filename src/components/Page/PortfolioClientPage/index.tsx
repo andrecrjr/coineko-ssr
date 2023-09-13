@@ -1,11 +1,11 @@
-"use client";
-import { useFetch } from "@/components/Hooks/useFetch";
-import usePortfolioData from "@/components/Hooks/usePortfolioData";
-import { TableComposition } from "@/components/shared/Layout";
+'use client';
+import { useFetch } from '@/components/Hooks/useFetch';
+import usePortfolioData from '@/components/Hooks/usePortfolioData';
+import { TableComposition } from '@/components/shared/Layout';
 
-import { CurrencyList } from "@/types";
-import React from "react";
-import { Page } from "../TemplatePage";
+import { CurrencyList } from '@/types';
+import React from 'react';
+import { Page } from '../TemplatePage';
 
 function PortfolioClientPage() {
   const { userPortfolioData } = usePortfolioData();
@@ -20,8 +20,7 @@ function PortfolioClientPage() {
   }
 
   if(error){
-    console.log(error)
-    return <p>Problem with get data</p>
+    return <p>Problem with get data</p>;
   }
 
   return  (

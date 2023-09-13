@@ -1,13 +1,13 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
-import { fetchService } from "@/services/ApiService";
+import { fetchService } from '@/services/ApiService';
 
-import { CurrencyList } from "@/types";
+import { CurrencyList } from '@/types';
 
-import { convertFilterQueryString, getMetadataName } from "@/utils";
-import { Page } from "@/components/Page";
-import {  TableComposition } from "@/components/shared/Layout";
-import ErrorPage from "@/components/Page/ErrorPage";
+import { convertFilterQueryString, getMetadataName } from '@/utils';
+import { Page } from '@/components/Page';
+import {  TableComposition } from '@/components/shared/Layout';
+import ErrorPage from '@/components/Page/ErrorPage';
 
 type Props = {
   params: { categoryPages: string };
@@ -15,13 +15,12 @@ type Props = {
 };
 
 export async function generateMetadata({
-  params,
-  searchParams,
+  params
 }: Props): Promise<Metadata> {
   const id = params.categoryPages;
   const metadata = await fetchService.getFetchData<
     [{ category_id: string; name: string }]
-  >("/coins/categories/list");
+  >('/coins/categories/list');
   const titleSection = getMetadataName(metadata, id);
   return {
     title: titleSection?.name,
@@ -31,25 +30,25 @@ export async function generateMetadata({
 export default async function TablePages({ params }: Props) {
   const queryUrl = convertFilterQueryString(
     {
-      vs_currency: "usd",
-      order: "market_cap_desc",
-      per_page: "50",
-      sparkline: "true",
-      page: "1",
-      price_change_percentage: "1h,24h,7d",
+      vs_currency: 'usd',
+      order: 'market_cap_desc',
+      per_page: '50',
+      sparkline: 'true',
+      page: '1',
+      price_change_percentage: '1h,24h,7d',
       category: params.categoryPages,
     },
-    "/coins/markets?"
+    '/coins/markets?'
   );
   const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
 
   const metadata = await fetchService.getFetchData<
     [{ category_id: string; name: string }]
-  >("/coins/categories/list");
+  >('/coins/categories/list');
   const titleSection = getMetadataName(metadata, params.categoryPages);
   
-    if(!!data?.status?.error_code){
-        return <ErrorPage/>
+    if(data?.status?.error_code){
+        return <ErrorPage/>;
     }
   return (
     <Page

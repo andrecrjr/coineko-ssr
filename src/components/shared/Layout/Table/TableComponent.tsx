@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
+
 interface Props {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const Table = ({ children }: Props) => {

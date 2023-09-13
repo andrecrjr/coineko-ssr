@@ -1,9 +1,7 @@
-// import Cat from '../../assets/cat.svg?component';
-import { memo } from "react";
-import { SearchBar } from "./SearchBar";
-import Menu from "./Menu";
-import SvgAsset from "@/assets/IconSvg";
-import { assetList } from "@/assets";
+import { SearchBar } from './SearchBar';
+import Menu from './Menu';
+import SvgAsset from '@/assets/IconSvg';
+import { assetList } from '@/assets';
 
 const Header = () => {
   return (
@@ -13,16 +11,16 @@ const Header = () => {
           coinek
           <SvgAsset
             options={{
-              alt: "coineko",
-              width: "30",
-              height: "30",
-              src: `${assetList["cat"]}`,
-              className: "inline self-center w-5 sm:w-10",
+              alt: 'coineko',
+              width: '30',
+              height: '30',
+              src: `${assetList['cat']}`,
+              className: 'inline self-center w-5 sm:w-10',
             }}
           />
         </h1>
         <p className="absolute text-xs bottom-0">
-          All cryptocurrency data provided by{" "}
+          All cryptocurrency data provided by{' '}
           <strong>
             <a
               href="http://coingecko.com"

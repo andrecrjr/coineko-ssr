@@ -27,6 +27,7 @@
 	"plugins": ["react", "prettier", "jest"],
 	"rules": {
 		"react/react-in-jsx-scope": "off",
+		"react/react-in-tsx-scope": "off",
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],
 		"import/prefer-default-export": "off",

@@ -1,16 +1,16 @@
-// import Menu from "@/components/Menu";
-import Header from "../components/Header";
-import "./globals.css";
+import { ReactNode } from 'react';
+import Header from '../components/Header';
+import './globals.css';
 
 export const metadata = {
-  title: "Coineko",
-  description: "The cutest coin watcher",
+  title: 'Coineko',
+  description: 'The cutest coin watcher',
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html lang="en">
