@@ -2,17 +2,14 @@ import useSWR from 'swr';
 import { fetchService } from '@/services/ApiService';
 
 const defaultConfig = {
-  revalidateOnFocus: true,
+	revalidateOnFocus: true
 };
 
-export function useFetch<T>(
-  path: string,
-  swrOptions = defaultConfig
-) {
-  const { data, error, isLoading } = useSWR<T>(
-    `${path}`,
-    fetchService.fetchCached,
-    swrOptions
-  );
-  return { data, error, isLoading };
+export function useFetch<T>(path: string, swrOptions = defaultConfig) {
+	const { data, error, isLoading } = useSWR<T>(
+		`${path}`,
+		fetchService.fetchCached,
+		swrOptions
+	);
+	return { data, error, isLoading };
 }

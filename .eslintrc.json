@@ -11,7 +11,8 @@
 		"plugin:react/recommended",
 		"prettier",
 		"plugin:jest/recommended",
-        "next/core-web-vitals"],
+		"next/core-web-vitals"
+	],
 	"overrides": [
 		{
 			"files": ["*.test.js"],
@@ -33,6 +34,6 @@
 		"import/prefer-default-export": "off",
 		"react/prop-types": "off",
 		"jest/no-mocks-import": "off",
-		"no-console":1
-    }
+		"no-console": 1
+	}
 }

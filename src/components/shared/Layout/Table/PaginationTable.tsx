@@ -1,6 +1,3 @@
-
 export function PaginationTable() {
-  return (
-    <>Pagination</>
-  );
+	return <>Pagination</>;
 }
