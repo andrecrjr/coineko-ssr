@@ -7,7 +7,6 @@ import { StarPortfolioCurrency } from '../shared/Layout';
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
   const { data, isLoading } = useFetch<searchType>(
     `/search?query=${searchParam}`,
-    'get'
   );
 
   if (!isLoading && !!data)
