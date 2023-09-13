@@ -8,7 +8,9 @@ const Menu = () => {
 	const host = headersList.get('host');
 
 	const hostname =
-		process.env.NODE_ENV === 'development' && host ? host : host?.split(':');
+		process.env.NODE_ENV === 'development' && host
+			? 'http://localhost:3000/'
+			: 'https://' + host?.split(':')[0];
 
 	return (
 		<nav
@@ -19,7 +21,7 @@ const Menu = () => {
 				{MenuOptions.map((item, index) => (
 					<Link
 						href={{
-							pathname: 'http://' + hostname + '/' + item.path + '/1'
+							pathname: hostname + item.path + '/1'
 						}}
 						key={index}
 					>
