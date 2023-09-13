@@ -10,9 +10,7 @@ export const Table = ({ children }: Props) => {
 			className="overflow-x-scroll 
 				 sm:overflow-x-auto sm:w-10/12 mb-10"
 		>
-			<table className="bg-[#DEDEDE]  rounded-md table-auto w-full">
-				{children}
-			</table>
+			<table className="rounded-md table-auto w-full">{children}</table>
 		</section>
 	);
 };

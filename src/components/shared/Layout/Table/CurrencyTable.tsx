@@ -16,7 +16,8 @@ const ColumnCurrencyInfoGrid = ({
 		<>
 			<td
 				className="table--body text-left
-			text-dark-purple-neko font-bold overflow-scroll sm:overflow-auto pl-3"
+			text-dark-purple-neko font-bold overflow-scroll 
+			sm:overflow-auto pl-3"
 			>
 				{currency?.market_cap_rank || '...'}
 			</td>
