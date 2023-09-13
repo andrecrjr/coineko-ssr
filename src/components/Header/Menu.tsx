@@ -1,8 +1,15 @@
 import React from 'react';
 import { MenuOptions } from './menu';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 
 const Menu = () => {
+	const headersList = headers();
+	const host = headersList.get('host');
+
+	const hostname =
+		process.env.NODE_ENV === 'development' && host ? host : host?.split(':');
+
 	return (
 		<nav
 			className="w-full bg-purple-neko overflow-x-scroll 
@@ -12,7 +19,7 @@ const Menu = () => {
 				{MenuOptions.map((item, index) => (
 					<Link
 						href={{
-							pathname: item.path
+							pathname: 'http://' + hostname + '/' + item.path + '/1'
 						}}
 						key={index}
 					>
