@@ -14,7 +14,7 @@ export type PageCurrencyQuery = {
 export type Currency = typeof currencyList;
 
 export type CoinGeckoDataRateLimit = {
-  status: {
+  status?: {
     error_code: number;
     error_message: string;
   }

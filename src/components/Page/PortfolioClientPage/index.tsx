@@ -24,7 +24,10 @@ function PortfolioClientPage() {
     return <p>Problem with get data</p>
   }
 
-  return  <Page description="Your portfolio, with your starred currencies in Coineko.">{<TableComposition data={data||[]}/>}</Page>;
+  return  (
+    <Page description="Your portfolio, with your starred currencies in Coineko.">
+        <TableComposition data={data||[]}/>
+    </Page>);
 }
 
 export default PortfolioClientPage;

@@ -7,6 +7,7 @@ import { CurrencyList } from "@/types";
 import { convertFilterQueryString, getMetadataName } from "@/utils";
 import { Page } from "@/components/Page";
 import {  TableComposition } from "@/components/shared/Layout";
+import ErrorPage from "@/components/Page/ErrorPage";
 
 type Props = {
   params: { categoryPages: string };
@@ -46,12 +47,15 @@ export default async function TablePages({ params }: Props) {
     [{ category_id: string; name: string }]
   >("/coins/categories/list");
   const titleSection = getMetadataName(metadata, params.categoryPages);
-
+  
+    if(!!data?.status?.error_code){
+        return <ErrorPage/>
+    }
   return (
     <Page
       description={`${titleSection.name} currencies by Market Capitalization.`}
     >
-      {data ? <TableComposition data={data}/> : <p>Error</p>}
+      <TableComposition data={data}/>
     </Page>
   );
 }

@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { formatterMoney } from "@/utils";
 import { Currency } from "@/types";
@@ -5,6 +6,7 @@ import { Currency } from "@/types";
 import Sparkline from "../../Sparkline";
 import { StarPortfolioCurrency } from "../StarPortfolioCurrency";
 import { ColumnPercentageCurrency } from "./PercentageComponent";
+import { PaginationTable } from "./PaginationTable";
 
 const ColumnCurrencyInfoGrid = ({
   currency,

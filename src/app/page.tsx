@@ -21,10 +21,6 @@ export default async function Home() {
     "/coins/markets?"
   );
   const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
-  console.log(data)
-    if(data?.status?.error_code === 429){
-        return <h2>High rate into Coingecko API, come back later</h2>
-    }
 
   return (
     <HomePage data={data} />

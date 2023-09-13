@@ -11,10 +11,15 @@ interface TableProps{
 export default function TableComposition({data}:TableProps){
     
     return (
-        <Table>
+        <section
+      className="overflow-x-scroll 
+				 sm:overflow-x-auto sm:w-10/12 mb-10"
+    >
+        <table className="bg-[#DEDEDE]  rounded-md table-auto w-full">
             <HeadTable />
             <BodyTable currencyList={data}/>
-            <PaginationTable />
-        </Table>
+        </table>
+    <PaginationTable  />
+    </section>
     )
 }
