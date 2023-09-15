@@ -5,7 +5,6 @@ import { fetchService } from '@/services/ApiService';
 import { CurrencyList } from '@/types';
 
 import { convertFilterQueryString, getMetadataName } from '@/utils';
-import { Page } from '@/components/Page';
 import { TableComposition } from '@/components/shared/Layout';
 import ErrorPage from '@/components/Page/ErrorPage';
 
@@ -49,10 +48,9 @@ export default async function TablePages({ params }: Props) {
 		return <ErrorPage />;
 	}
 	return (
-		<Page
-			description={`${titleSection.name} currencies by Market Capitalization.`}
-		>
-			<TableComposition data={data} />
-		</Page>
+		<TableComposition
+			data={data}
+			tableDescription={`${titleSection.name} currencies by Market Capitalization.`}
+		/>
 	);
 }
