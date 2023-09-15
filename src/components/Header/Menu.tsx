@@ -18,23 +18,32 @@ const Menu = () => {
 			h-8 sm:h-10 flex content-center sm:justify-center sm:overflow-auto"
 		>
 			<ul className="list-none flex self-center ">
-				{MenuOptions.map((item, index) => (
-					<Link
-						href={{
-							pathname: hostname + item.path + '/1'
-						}}
-						key={index}
-					>
-						<li
-							className={
-								'text-sm pr-10 leading-5 first:pl-4 last:pr-4 font-roboto'
-							}
-							data-testid={`button-${item.alias.toLowerCase()}`}
+				{MenuOptions.map((item, index) => {
+					let route = '';
+					if (item.path !== 'portfolio') {
+						route = hostname + '/page/' + item.path + '/1';
+					} else {
+						route = hostname + '' + item.path;
+					}
+
+					return (
+						<Link
+							href={{
+								pathname: route
+							}}
+							key={index}
 						>
-							{item.alias}
-						</li>
-					</Link>
-				))}
+							<li
+								className={
+									'text-sm pr-10 leading-5 first:pl-4 last:pr-4 font-roboto'
+								}
+								data-testid={`button-${item.alias.toLowerCase()}`}
+							>
+								{item.alias}
+							</li>
+						</Link>
+					);
+				})}
 			</ul>
 		</nav>
 	);
