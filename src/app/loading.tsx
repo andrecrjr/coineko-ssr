@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Loading() {
-	return <p>Loading data from coingecko!!!</p>;
+	return <p>Loading data from Coingecko API!</p>;
 }
