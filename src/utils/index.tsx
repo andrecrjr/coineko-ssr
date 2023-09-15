@@ -41,3 +41,7 @@ export const storageObject = {
 		return true;
 	}
 };
+
+// back-end url or front-end url
+export const staticHostURL =
+	process.env.NEXT_STATIC_HOSTNAME || window.location.origin;
