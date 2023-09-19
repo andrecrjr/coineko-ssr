@@ -14,7 +14,7 @@ module.exports = {
 			colors: {
 				'light-gray-neko': '#E2E3FE',
 				'purple-neko': '#8B8BFD',
-				'dark-purple-neko': '#9092D5',
+				'dark-purple-neko': '#3C3C6E',
 				'black-neko': '#303030'
 			}
 		}

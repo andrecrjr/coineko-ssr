@@ -44,4 +44,4 @@ export const storageObject = {
 
 // back-end url or front-end url
 export const staticHostURL =
-	process.env.NEXT_STATIC_HOSTNAME || window.location.origin;
+	process.env.NEXT_STATIC_HOSTNAME || globalThis?.location?.origin;

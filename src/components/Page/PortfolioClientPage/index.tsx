@@ -15,7 +15,11 @@ function PortfolioClientPage() {
 	);
 
 	if (error) {
-		return <p>Problem to get data from Coingecko!</p>;
+		return (
+			<p className=" text-dark-purple-neko">
+				Problem to get data from Coingecko!
+			</p>
+		);
 	}
 
 	return (

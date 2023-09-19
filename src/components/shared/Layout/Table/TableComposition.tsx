@@ -17,11 +17,11 @@ export default function TableComposition({
 	return (
 		<>
 			<DescriptionTable description={tableDescription} />
+			{!!data && data.length > 10 && <PaginationTable />}
 			<Table>
 				<HeadTable />
 				<BodyTable currencyList={data} />
 			</Table>
-			{!!data && data.length > 10 && <PaginationTable />}
 		</>
 	);
 }

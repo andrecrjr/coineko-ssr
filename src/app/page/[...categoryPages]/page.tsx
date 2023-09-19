@@ -17,15 +17,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const metadata = await fetchService.getFetchData<
 		[{ category_id: string; name: string }]
 	>('/coins/categories/list');
+
 	const titleSection = getMetadataName(metadata, params.categoryPages[0]);
+	const pageNumber = parseInt(params.categoryPages[1]);
+	const paginationTitle =
+		pageNumber > 1 ? ` - Page ${params.categoryPages[1]}` : '';
 	return {
-		title: titleSection?.name
+		title: titleSection?.name + paginationTitle
 	};
 }
 
 export default async function TablePages({ params }: Props) {
 	const [categoryPage, id] = params.categoryPages;
-
 	const queryUrl = convertFilterQueryString(
 		{
 			vs_currency: 'usd',
