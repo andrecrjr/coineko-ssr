@@ -1,5 +1,5 @@
 [
-	{ "alias": "Cryptocurrency", "path": "/" },
+	{ "alias": "Cryptocurrency", "path": "cryptocurrency" },
 	{ "alias": "NFT", "path": "non-fungible-tokens-nft" },
 	{
 		"alias": "DeFi",

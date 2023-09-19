@@ -1,6 +1,6 @@
+import { TableComposition } from '@/components/shared/Layout';
 import React from 'react';
-import { Page } from '../TemplatePage';
 
 export default function PaginationCurrencyTable() {
-	return <Page description="Page 2"> </Page>;
+	return <TableComposition data={[]} tableDescription="Pagination 2" />;
 }

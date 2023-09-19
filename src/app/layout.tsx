@@ -1,3 +1,4 @@
+import { Page } from '@/components/Page';
 import { ReactNode } from 'react';
 import Header from '../components/Header';
 import './globals.css';
@@ -12,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body>
 				<Header />
-				{children}
+				<Page>{children}</Page>
 			</body>
 		</html>
 	);

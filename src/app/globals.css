@@ -21,7 +21,7 @@
 	}
 
 	.table--body__coin {
-		@apply flex text-left text-[0.70rem] text-[#272727] leading-5 min-w-[170px];
+		@apply flex text-left text-[0.70rem] text-black-neko leading-5 min-w-[170px];
 		@apply lg:pl-0 md:static;
 	}
 
@@ -39,6 +39,6 @@
 		@apply w-full mb-3 mt-3 p-3 pr-14;
 	}
 	.suggest--box {
-		@apply h-60 sm:h-52  bg-white w-full z-10 overflow-scroll overflow-x-hidden;
+		@apply h-60 sm:h-52  bg-light-gray-neko w-full z-10 overflow-scroll overflow-x-hidden absolute;
 	}
 }

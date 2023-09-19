@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
 import currencyList from './currencyListApi.json';
 
 export type PageCurrencyQuery = {
@@ -24,17 +23,6 @@ export type CurrencyList = Currency[] & CoinGeckoDataRateLimit;
 
 export type PaginationState = {
 	number: number;
-	firstOrPagination: 'current' | 'pagination';
-};
-
-export type Pagination = {
-	page: PaginationState;
-	setPagination: Dispatch<SetStateAction<PaginationState>>;
-};
-
-export type PortfolioType = {
-	userCurrency: string[] | null;
-	setPortfolio: Dispatch<{ type: string; payload: string }>;
 };
 
 export type CurrencyItem = {

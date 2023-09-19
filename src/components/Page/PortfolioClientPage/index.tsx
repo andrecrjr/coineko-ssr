@@ -5,28 +5,30 @@ import { TableComposition } from '@/components/shared/Layout';
 
 import { CurrencyList } from '@/types';
 import React from 'react';
-import { Page } from '../TemplatePage';
 
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
-	const { data, isLoading, error } = useFetch<CurrencyList>(
+	const { data, error } = useFetch<CurrencyList>(
 		`/coins/markets?vs_currency=usd&ids=${encodeURIComponent(
 			userPortfolioData?.join()
 		)}&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d`
 	);
 
-	if (isLoading) {
-		return <p>Loading portfolio data</p>;
-	}
-
 	if (error) {
-		return <p>Problem with get data</p>;
+		return (
+			<p className=" text-dark-purple-neko">
+				Problem to get data from Coingecko!
+			</p>
+		);
 	}
 
 	return (
-		<Page description="Your portfolio, with your starred currencies in Coineko.">
-			<TableComposition data={data || []} />
-		</Page>
+		<TableComposition
+			data={data || []}
+			tableDescription={
+				'Your portfolio, with your starred currencies in Coineko.'
+			}
+		/>
 	);
 }
 
