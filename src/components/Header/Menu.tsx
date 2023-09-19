@@ -19,13 +19,11 @@ const Menu = () => {
 		>
 			<ul className="list-none flex self-center ">
 				{MenuOptions.map((item, index) => {
-					let route = '';
+					let route = hostname + '/' + item.path;
 					if (item.path !== 'portfolio') {
 						route = hostname + '/page/' + item.path + '/1';
-					} else {
-						route = hostname + '' + item.path;
 					}
-
+			
 					return (
 						<Link
 							href={{
