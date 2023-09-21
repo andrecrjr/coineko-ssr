@@ -12,7 +12,7 @@ export function PaginationTable() {
 		}`;
 	};
 	return (
-		<ul className="inline-flex gap-4 bg-purple-neko-300 justify-around sticky top-0 left-0 right-0">
+		<ul className="inline-flex gap-4 bg-purple-neko-300 justify-around z-10 sticky top-0 left-0 right-0">
 			<li className="min-w-[80px]">
 				{pageCurrentNumber - 1 !== 0 && (
 					<Link
