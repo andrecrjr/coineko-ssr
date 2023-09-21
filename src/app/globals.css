@@ -21,8 +21,8 @@
 	}
 
 	.table--body__coin {
-		@apply flex text-left text-[0.70rem] text-black-neko leading-5 min-w-[170px];
-		@apply lg:pl-0 md:static;
+		@apply flex text-left text-[0.70rem] text-black-neko leading-5 min-w-[170px] relative;
+		@apply lg:pl-0;
 	}
 
 	.table--body__border {
@@ -40,5 +40,9 @@
 	}
 	.suggest--box {
 		@apply h-60 sm:h-52  bg-light-gray-neko w-full z-10 overflow-scroll overflow-x-hidden absolute;
+	}
+
+	.table--fix {
+		@apply sticky top-0 left-0;
 	}
 }

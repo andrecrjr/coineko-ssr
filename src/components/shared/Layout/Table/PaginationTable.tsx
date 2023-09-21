@@ -12,21 +12,23 @@ export function PaginationTable() {
 		}`;
 	};
 	return (
-		<ul className="flex gap-4 mr-8 sm:sticky sm:top-0 bg-light-gray-neko">
-			{pageCurrentNumber - 1 !== 0 && (
-				<li>
+		<ul className="inline-flex gap-4 bg-purple-neko-300 justify-around sticky top-0 left-0 right-0">
+			<li className="min-w-[80px]">
+				{pageCurrentNumber - 1 !== 0 && (
 					<Link
-						href={{ pathname: pathNameNextPrevious('previous') }}
-						className=" text-dark-purple-neko"
+						href={{
+							pathname: pathNameNextPrevious('previous')
+						}}
+						className="text-purple-neko-900"
 					>
 						Previous Page
 					</Link>
-				</li>
-			)}
-			<li>
+				)}
+			</li>
+			<li className="min-w-[80px]">
 				<Link
 					href={{ pathname: pathNameNextPrevious('next') }}
-					className=" text-dark-purple-neko font-bold"
+					className=" text-purple-neko-900 font-bold"
 				>
 					Next Page
 				</Link>
