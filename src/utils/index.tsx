@@ -4,6 +4,8 @@ export const convertFilterQueryString = (
 	filterPaginationAndCategory: PageCurrencyQuery,
 	prepath: string = ''
 ) => {
+	filterPaginationAndCategory?.category === 'cryptocurrency' &&
+		delete filterPaginationAndCategory['category'];
 	const filterResult = new URLSearchParams(
 		filterPaginationAndCategory
 	).toString();
