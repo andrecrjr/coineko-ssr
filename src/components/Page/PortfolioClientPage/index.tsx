@@ -22,6 +22,10 @@ function PortfolioClientPage() {
 		);
 	}
 
+	if (userPortfolioData?.length === 0) {
+		return <p>No starred cryptocurrencies yet!</p>;
+	}
+
 	return (
 		<TableComposition
 			data={data || []}
