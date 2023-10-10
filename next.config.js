@@ -7,7 +7,8 @@ const nextConfig = {
 				hostname: '*.coingecko.com',
 				port: ''
 			}
-		]
+		],
+		unoptimized: true
 	},
 	experimental: {
 		appDir: true
