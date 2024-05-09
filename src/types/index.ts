@@ -36,5 +36,5 @@ export type CurrencyItem = {
 };
 
 export type searchType = {
-	coins: CurrencyItem[];
+	currencies: CurrencyItem[];
 };

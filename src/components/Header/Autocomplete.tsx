@@ -6,14 +6,14 @@ import { StarPortfolioCurrency } from '../shared/Layout';
 
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
 	const { data, isLoading } = useFetch<searchType>(
-		`/search?query=${searchParam}`
+		`search?q=${searchParam}`
 	);
 
 	if (!isLoading && !!data)
 		return (
 			<ul className="suggest--box" role="listbox">
 				{data &&
-					data.coins.map((item: CurrencyItem) => {
+					data.currencies.map((item: CurrencyItem) => {
 						return (
 							<li
 								role="aria-selected"
@@ -36,13 +36,13 @@ const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
 					my-8 sm:my-3 mx-5 items-center"
 		>
 			<StarPortfolioCurrency currencyId={currency.id} />
-			<Image
+			{/* <Image
 				src={currency.thumb}
 				className="ml-4"
 				width="19"
 				height="19"
 				alt={currency.name}
-			/>
+			/> */}
 			<h3 className="text-sm break-before-auto overflow-hidden ml-4">
 				{currency.name}
 			</h3>
