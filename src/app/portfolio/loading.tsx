@@ -1,3 +1,3 @@
 export default function Loading() {
-	return <p>Loading portfolio data from coingecko!</p>;
+	return <p>Loading portfolio data from Coinpaprika!</p>;
 }
