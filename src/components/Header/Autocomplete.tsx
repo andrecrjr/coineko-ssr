@@ -1,7 +1,6 @@
 import { useFetch } from '../Hooks/useFetch';
 
 import { CurrencyItem, searchType } from '@/types';
-import Image from 'next/image';
 import { StarPortfolioCurrency } from '../shared/Layout';
 
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {

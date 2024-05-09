@@ -17,7 +17,7 @@ function PortfolioClientPage() {
 	if (error) {
 		return (
 			<p className=" text-dark-purple-neko">
-				Problem to get data from {process.env.CURRENT_COIN_API}!
+				Problem to get data from {process.env.NEXT_CURRENT_COIN_API}!
 			</p>
 		);
 	}
