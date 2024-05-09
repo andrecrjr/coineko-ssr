@@ -66,8 +66,6 @@ const CurrencyChild = ({ currency }: { currency: Currency }) => {
 				classNames={'table--body overflow-scroll sm:overflow-auto'}
 				formatPrice={currency?.quotes['USD'].price || 0}
 			/>
-			
-
 			<ColumnPercentageCurrency
 				currencyNumber={currency?.quotes['USD'].percent_change_1h}
 				role={`percentage 1h in ${currency.name}`}
