@@ -1,7 +1,7 @@
 import { PageCurrencyQuery } from '@/types';
 
 export const convertFilterQueryString = (
-	filterPaginationAndCategory: PageCurrencyQuery,
+	filterPaginationAndCategory?: PageCurrencyQuery,
 	prepath: string = ''
 ) => {
 	filterPaginationAndCategory?.category === 'cryptocurrency' &&

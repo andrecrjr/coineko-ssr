@@ -19,7 +19,7 @@ const Header = () => {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Coingecko
+							Coinpaprika
 						</a>
 					</strong>
 				</p>

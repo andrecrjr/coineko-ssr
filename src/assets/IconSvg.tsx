@@ -1,5 +1,6 @@
-import Image, { ImageProps } from 'next/image';
+import { DetailedHTMLProps, ImgHTMLAttributes } from 'react';
 
-export default function SvgAsset({ options }: { options: ImageProps }) {
-	return <Image loading="eager" {...options} alt="icon" />;
+export default function SvgAsset({ options }: { options: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> }) {
+	// eslint-disable-next-line @next/next/no-img-element
+	return <img {...options} alt="icon" />;
 }

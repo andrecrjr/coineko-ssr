@@ -1,9 +1,9 @@
 'use client';
-import Image from 'next/image';
+
 import { formatterMoney } from '@/utils';
 import { Currency } from '@/types';
 
-import Sparkline from '../../Sparkline';
+
 import { StarPortfolioCurrency } from '../StarPortfolioCurrency';
 import { ColumnPercentageCurrency } from './PercentageComponent';
 
@@ -19,11 +19,11 @@ const ColumnCurrencyInfoGrid = ({
 			text-dark-purple-neko font-bold overflow-scroll 
 			sm:overflow-auto pl-3"
 			>
-				{currency?.market_cap_rank || '...'}
+				{currency?.rank || '...'}
 			</td>
 			<td className="table--body table--body__coin">
 				<section className="grid grid-cols-[1fr_100px] sm:grid-cols-[30px_auto] md:auto-rows-max  table--fix">
-					<Image
+					{/* <Image
 						src={`${
 							currency?.image.replace('large', 'thumb') ||
 							'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579'
@@ -33,7 +33,7 @@ const ColumnCurrencyInfoGrid = ({
 						width="25"
 						height="25"
 						alt={currency?.name || 'Crypto'}
-					/>
+					/> */}
 					<a
 						className="row-span-2 flex 
                             items-center pl-1 w-auto font-bold 
@@ -64,36 +64,37 @@ const CurrencyChild = ({ currency }: { currency: Currency }) => {
 			<ColumnCurrencyInfoGrid currency={currency} />
 			<ColumnMoneyFormatter
 				classNames={'table--body overflow-scroll sm:overflow-auto'}
-				formatPrice={currency?.current_price || 0}
+				formatPrice={currency?.quotes['USD'].price || 0}
 			/>
+			
 
 			<ColumnPercentageCurrency
-				currencyNumber={currency?.price_change_percentage_1h_in_currency}
+				currencyNumber={currency?.quotes['USD'].percent_change_1h}
 				role={`percentage 1h in ${currency.name}`}
 			/>
 			<ColumnPercentageCurrency
-				currencyNumber={currency && currency?.market_cap_change_percentage_24h}
+				currencyNumber={currency && currency?.quotes['USD'].market_cap_change_24h}
 			/>
 			<ColumnPercentageCurrency
-				currencyNumber={currency?.price_change_percentage_7d_in_currency}
+				currencyNumber={currency && currency?.quotes['USD'].percent_change_7d}
 			/>
 			<ColumnMoneyFormatter
 				classNames="table--body"
-				formatPrice={currency?.market_cap || 0}
+				formatPrice={currency?.quotes['USD'].market_cap || 0}
 			/>
-			<td className="table--body">
+			{/* <td className="table--body">
 				{currency.sparkline_in_7d?.price && (
 					<Sparkline
-						datasetSpark={currency?.sparkline_in_7d.price}
+						datasetSpark={currency?.quotes['USD'].sparkline_in_7d.price}
 						color={
-							currency?.price_change_percentage_7d_in_currency &&
-							currency?.price_change_percentage_7d_in_currency > 0
+							currency?.quotes['USD'].price_change_percentage_7d_in_currency &&
+							currency?.quotes['USD'].price_change_percentage_7d_in_currency > 0
 								? 'green'
 								: 'red'
 						}
 					/>
 				)}
-			</td>
+			</td> */}
 		</tr>
 	);
 };

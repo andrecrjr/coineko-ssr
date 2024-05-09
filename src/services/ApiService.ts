@@ -1,6 +1,6 @@
 export const fetchService = {
 	async fetchCached<T>(path: string, options?: {}): Promise<T> {
-		return fetch(`https://api.coingecko.com/api/v3${path}`, {
+		return fetch(`https://api.coinpaprika.com/v1/${path}`, {
 			...options,
 			next: { revalidate: 900000 }
 		})
