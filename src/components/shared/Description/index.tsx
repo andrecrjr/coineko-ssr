@@ -11,7 +11,7 @@ export default function DescriptionTable({
 		<section className="flex items-center mt-8 w-10/12 mb-2 md:mb-5 md:mt-10">
 			<SvgAsset
 				options={{
-					alt: 'coineko',
+					alt: 'coinyan',
 					width: '50',
 					height: '50',
 					src: `${assetList['cat']}`,
