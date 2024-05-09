@@ -2,10 +2,12 @@ import { fetchService } from '@/services/ApiService';
 import { CurrencyList } from '@/types';
 
 import HomePage from '@/components/Page/HomePage';
+import { paginationApiData } from '@/utils';
 
 export default async function Home() {
 
 	const data = await fetchService.getFetchData<CurrencyList>('/tickers');
-
-	return <HomePage data={data} />;
+	const paginatedData = paginationApiData(data, 1);
+	
+	return <HomePage data={paginatedData} />;
 }

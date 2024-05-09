@@ -1,7 +1,7 @@
-import { PageCurrencyQuery } from '@/types';
+import { Currency, PageCurrencyQuery } from '@/types';
 
 export const convertFilterQueryString = (
-	filterPaginationAndCategory?: PageCurrencyQuery,
+	filterPaginationAndCategory: PageCurrencyQuery,
 	prepath: string = ''
 ) => {
 	filterPaginationAndCategory?.category === 'cryptocurrency' &&
@@ -10,6 +10,14 @@ export const convertFilterQueryString = (
 		filterPaginationAndCategory
 	).toString();
 	return prepath + filterResult;
+};
+
+export const paginationApiData = (data:Currency[], currentPage:number) =>{
+	let itensPerPage = 50;
+	let initialIndex = (currentPage - 1) * itensPerPage;
+	if (initialIndex + itensPerPage < data.length)
+		return data.splice(initialIndex, itensPerPage);
+	throw new Error('Problem with API');
 };
 
 export const getMetadataName = (

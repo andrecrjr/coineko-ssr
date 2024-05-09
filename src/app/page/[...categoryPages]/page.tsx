@@ -1,10 +1,10 @@
-import { Metadata } from 'next';
+// import { Metadata } from 'next';
 
 import { fetchService } from '@/services/ApiService';
 
 import { CurrencyList } from '@/types';
 
-import { convertFilterQueryString, getMetadataName } from '@/utils';
+import { paginationApiData } from '@/utils';
 import { TableComposition } from '@/components/shared/Layout';
 import ErrorPage from '@/components/Page/ErrorPage';
 
@@ -13,47 +13,38 @@ type Props = {
 	searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const metadata = await fetchService.getFetchData<
-		[{ category_id: string; name: string }]
-	>('/coins/categories/list');
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+// 	const metadata = await fetchService.getFetchData<
+// 		[{ category_id: string; name: string }]
+// 	>('/coins/categories/list');
 
-	const titleSection = getMetadataName(metadata, params.categoryPages[0]);
-	const pageNumber = parseInt(params.categoryPages[1]);
-	const paginationTitle =
-		pageNumber > 1 ? ` - Page ${params.categoryPages[1]}` : '';
-	return {
-		title: titleSection?.name + paginationTitle
-	};
-}
+// 	const titleSection = getMetadataName(metadata, params.categoryPages[0]);
+// 	const pageNumber = parseInt(params.categoryPages[1]);
+// 	const paginationTitle =
+// 		pageNumber > 1 ? ` - Page ${params.categoryPages[1]}` : '';
+// 	return {
+// 		title: titleSection?.name + paginationTitle
+// 	};
+// }
 
 export default async function TablePages({ params }: Props) {
-	const [categoryPage, id] = params.categoryPages;
-	const queryUrl = convertFilterQueryString(
-		{
-			vs_currency: 'usd',
-			order: 'market_cap_desc',
-			per_page: '50',
-			sparkline: 'true',
-			page: id,
-			price_change_percentage: '1h,24h,7d',
-			category: categoryPage
-		},
-		'/coins/markets?'
-	);
-	const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
-	const metadata = await fetchService.getFetchData<
-		[{ category_id: string; name: string }]
-	>('/coins/categories/list');
-	const titleSection = getMetadataName(metadata, categoryPage);
+	const [, id] = params.categoryPages;
+
+	const data = await fetchService.getFetchData<CurrencyList>('/tickers');
+
+	const paginatedData = paginationApiData(data, Number(id));
+	// const metadata = await fetchService.getFetchData<
+	// 	[{ category_id: string; name: string }]
+	// >('/coins/categories/list');
+	// const titleSection = getMetadataName(metadata, categoryPage);
 
 	if (data?.status?.error_code) {
 		return <ErrorPage />;
 	}
 	return (
 		<TableComposition
-			data={data}
-			tableDescription={`${titleSection.name} currencies by Market Capitalization.`}
+			data={paginatedData}
+			tableDescription={`${'crypto'} currencies by Market Capitalization.`}
 		/>
 	);
 }
