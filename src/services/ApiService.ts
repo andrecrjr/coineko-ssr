@@ -2,7 +2,7 @@ export const fetchService = {
 	async fetchCached<T>(path: string, options?: {}): Promise<T> {
 		return fetch(`https://api.coingecko.com/api/v3${path}`, {
 			...options,
-			next: { revalidate: 9000 }
+			next: { revalidate: 900000 }
 		})
 			.then(async response => {
 				const data = await response.json();

@@ -30,7 +30,7 @@ function PortfolioClientPage() {
 		<TableComposition
 			data={data || []}
 			tableDescription={
-				'Your portfolio, with your starred currencies in Coineko.'
+				'Your portfolio, with your starred currencies in coinyan.'
 			}
 		/>
 	);

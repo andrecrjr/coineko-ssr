@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import './globals.css';
 
 export const metadata = {
-	title: 'Coineko',
+	title: 'Coinyan',
 	description: 'The cutest coin watcher'
 };
 
