@@ -15,7 +15,7 @@ const Header = () => {
 					All cryptocurrency data provided by{' '}
 					<strong>
 						<a
-							href="http://coingecko.com"
+							href="http://coinpaprika.com"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
