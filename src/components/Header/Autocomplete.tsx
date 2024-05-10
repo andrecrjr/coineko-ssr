@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useFetch } from '../Hooks/useFetch';
 
 import { CurrencyItem, searchType } from '@/types';
@@ -35,13 +36,13 @@ const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
 					my-8 sm:my-3 mx-5 items-center"
 		>
 			<StarPortfolioCurrency currencyId={currency.id} />
-			{/* <Image
-				src={currency.thumb}
+			<img
+				src={`https://static.coinpaprika.com/coin/${currency?.id}/logo.png`}
 				className="ml-4"
 				width="19"
 				height="19"
 				alt={currency.name}
-			/> */}
+			/> 
 			<h3 className="text-sm break-before-auto overflow-hidden ml-4">
 				{currency.name}
 			</h3>
