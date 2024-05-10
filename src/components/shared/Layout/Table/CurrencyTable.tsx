@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { formatterMoney } from '@/utils';
@@ -23,9 +24,9 @@ const ColumnCurrencyInfoGrid = ({
 			</td>
 			<td className="table--body table--body__coin">
 				<section className="grid grid-cols-[1fr_100px] sm:grid-cols-[30px_auto] md:auto-rows-max  table--fix">
-					{/* <Image
+					<img
 						src={`${
-							currency?.image.replace('large', 'thumb') ||
+							`https://static.coinpaprika.com/coin/${currency?.id}/logo.png` ||
 							'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579'
 						}`}
 						className="mx-auto mt-auto"
@@ -33,7 +34,7 @@ const ColumnCurrencyInfoGrid = ({
 						width="25"
 						height="25"
 						alt={currency?.name || 'Crypto'}
-					/> */}
+					/>
 					<a
 						className="row-span-2 flex 
                             items-center pl-1 w-auto font-bold 
