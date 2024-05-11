@@ -22,7 +22,7 @@ function PortfolioClientPage() {
 
 	return (
 		<TableComposition
-			data={filter || []}
+			data={filter}
 			tableDescription={
 				'Your portfolio, with your starred currencies in coinyan.'
 			}
