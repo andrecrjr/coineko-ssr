@@ -19,7 +19,7 @@ export type CoinGeckoDataRateLimit = {
 	};
 };
 
-export type CurrencyList = Currency[] & CoinGeckoDataRateLimit;
+export type CurrencyList = Currency[];
 
 export type PaginationState = {
 	number: number;

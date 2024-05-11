@@ -17,7 +17,7 @@ export const paginationApiData = (data:Currency[], currentPage:number) =>{
 	let initialIndex = (currentPage - 1) * itensPerPage;
 	if (initialIndex + itensPerPage < data.length)
 		return data.splice(initialIndex, itensPerPage);
-	throw new Error('Problem with API');
+	return [];
 };
 
 export const getMetadataName = (
