@@ -14,6 +14,7 @@ export default function TableComposition({
 	data,
 	tableDescription
 }: TableProps) {
+	
 	return (
 		<>
 			<DescriptionTable description={tableDescription} />

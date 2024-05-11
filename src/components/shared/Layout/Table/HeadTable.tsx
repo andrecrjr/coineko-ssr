@@ -20,9 +20,9 @@ export function HeadTable() {
 				<td className="table--head min-w-[170px] sm:min-w-[160px] md:min-w-[145px]">
 					Market Cap.
 				</td>
-				<td className="table--head min-w-[auto] sm:min-w-[auto]">
+				{/* <td className="table--head min-w-[auto] sm:min-w-[auto]">
 					Last 7 days
-				</td>
+				</td> */}
 			</tr>
 		</thead>
 	);
