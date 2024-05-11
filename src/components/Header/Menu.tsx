@@ -23,7 +23,6 @@ const Menu = () => {
 					if (item.path !== 'portfolio') {
 						route = hostname + '/page/' + item.path + '/1';
 					}
-
 					return (
 						<Link
 							href={{
