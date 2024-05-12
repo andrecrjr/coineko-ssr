@@ -2,7 +2,7 @@ import React from 'react';
 
 export function HeadTable() {
 	return (
-		<thead className="border-b-[2px] border-[#4d51bb]">
+		<thead className="border-b-[3px] border-purple-neko-900">
 			<tr>
 				<td className="table--head px-0 w-6 h-auto"></td>
 				<td className="table--head px-3 text-left">#</td>
@@ -20,9 +20,9 @@ export function HeadTable() {
 				<td className="table--head min-w-[170px] sm:min-w-[160px] md:min-w-[145px]">
 					Market Cap.
 				</td>
-				{/* <td className="table--head min-w-[auto] sm:min-w-[auto]">
+				<td className="table--head min-w-[auto] sm:min-w-[auto]">
 					Last 7 days
-				</td> */}
+				</td> 
 			</tr>
 		</thead>
 	);
