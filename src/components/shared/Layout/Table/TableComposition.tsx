@@ -1,6 +1,6 @@
 import { CurrencyList } from '@/types';
 import DescriptionTable from '../../Description';
-import { BodyTable } from './CurrencyTable';
+import { MainBodyTable } from './CurrencyTable';
 import { HeadTable } from './HeadTable';
 import { PaginationTable } from './PaginationTable';
 import { Table } from './TableComponent';
@@ -10,7 +10,7 @@ interface TableProps {
 	tableDescription: string;
 }
 
-export default function TableComposition({
+export default function TableFilteredComposition({
 	data,
 	tableDescription
 }: TableProps) {
@@ -21,7 +21,7 @@ export default function TableComposition({
 			{!!data && data.length > 10 && <PaginationTable />}
 			<Table>
 				<HeadTable />
-				<BodyTable currencyList={data} />
+				<MainBodyTable currencyList={data} />
 			</Table>
 		</>
 	);

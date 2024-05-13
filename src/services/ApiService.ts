@@ -16,17 +16,9 @@ export const fetchService = {
 			});
 		return data;
 	},
-	async fetchData<T>(url: string, options?: {}, revalidate?:number): Promise<T> {
-		try {
-			const data = await this.fetchCached<T>(url, options, revalidate);
-			return data;
-		} catch (error) {
-			throw new Error(`Problem in API: ${error}`);
-		}
-	},
 	async getFetchData<T>(urlParam: string, options?: {}, revalidate?:number): Promise<T> {
 		try {
-			const data = await this.fetchData<T>(`${urlParam}`, options, revalidate);
+			const data = await this.fetchCached<T>(`${urlParam}`, options, revalidate);
 			return data;
 		} catch (error) {
 			throw new Error(`Problem in API ${error}`);

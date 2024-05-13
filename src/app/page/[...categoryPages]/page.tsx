@@ -1,7 +1,7 @@
 // import { Metadata } from 'next';
 
 import { fetchAndFilterData, fetchService } from '@/services/ApiService';
-import { TableComposition } from '@/components/shared/Layout';
+import {TableFilteredComposition } from '@/components/shared/Layout';
 import { Metadata } from 'next';
 
 type Props = {
@@ -26,7 +26,7 @@ export default async function TablePages({ params }: Props) {
 	const {paginatedData, categoryData} = await fetchAndFilterData(categoryId, id);
 	
 	return (
-		<TableComposition
+		<TableFilteredComposition
 			data={paginatedData||[]}
 			tableDescription={`${categoryData.description}`}
 		/>

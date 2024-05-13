@@ -1,7 +1,7 @@
-import { BodyTable } from './CurrencyTable';
+import { MainBodyTable } from './CurrencyTable';
 import { HeadTable } from './HeadTable';
 import { Table } from './TableComponent';
 import { PaginationTable } from './PaginationTable';
-import TableComposition from './TableComposition';
+import TableFilteredComposition from './TableComposition';
 
-export { Table, BodyTable, HeadTable, PaginationTable, TableComposition };
+export { Table, MainBodyTable, HeadTable, PaginationTable,TableFilteredComposition };
