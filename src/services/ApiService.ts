@@ -48,6 +48,5 @@ export async function fetchAndFilterData(categoryId: string, id: string) {
 	 	return {...currency, last_7_days:data[0].price};
   }));
 
-  console.log(paginatedUpdateData);
   return {paginatedData:paginatedUpdateData, categoryData};
 }
