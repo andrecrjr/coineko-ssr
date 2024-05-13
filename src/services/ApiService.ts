@@ -50,6 +50,12 @@ export async function fetchAndFilterData(categoryId: string, id: string) {
 
   // Paginate the filtered data
   const paginatedData = paginationApiData(filteredDataByCategory, Number(id));
+  const paginatedUpdateData = await Promise.all(paginatedData.map(async(currency)=>{
+		const response = await fetch(`https://graphsv2.coinpaprika.com/currency/data/${currency.id}/7d/?quote=usd`);
+	 	const data = await response.json();
+	 	return {...currency, last_7_days:data[0].price};
+  }));
 
-  return {paginatedData, categoryData};
+  console.log(paginatedUpdateData);
+  return {paginatedData:paginatedUpdateData, categoryData};
 }

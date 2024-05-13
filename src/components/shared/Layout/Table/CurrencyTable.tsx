@@ -7,6 +7,7 @@ import { Currency } from '@/types';
 
 import { StarPortfolioCurrency } from '../StarPortfolioCurrency';
 import { ColumnPercentageCurrency } from './PercentageComponent';
+import Sparkline from '../../Sparkline';
 
 const ColumnCurrencyInfoGrid = ({
 	currency
@@ -81,19 +82,19 @@ const CurrencyChild = ({ currency }: { currency: Currency }) => {
 				classNames="table--body"
 				formatPrice={currency?.quotes['USD'].market_cap || 0}
 			/>
-			{/* <td className="table--body">
-				{currency.sparkline_in_7d?.price && (
+			<td className="table--body">
+				{currency.last_7_days && (
 					<Sparkline
-						datasetSpark={currency?.quotes['USD'].sparkline_in_7d.price}
+						datasetSpark={currency?.last_7_days}
 						color={
-							currency?.quotes['USD'].price_change_percentage_7d_in_currency &&
-							currency?.quotes['USD'].price_change_percentage_7d_in_currency > 0
+							currency?.quotes['USD'].percent_change_7d &&
+							currency?.quotes['USD'].percent_change_7d > 0
 								? 'green'
 								: 'red'
 						}
 					/>
 				)}
-			</td> */}
+			</td>
 		</tr>
 	);
 };
