@@ -14,11 +14,11 @@ const Menu = () => {
 
 	return (
 		<nav
-			className='w-full bg-purple-neko-700 
+			className="w-full bg-purple-neko-700 
 			overflow-x-scroll 
 			max-h-10 sm:max-h-10 flex content-center 
 			sm:justify-center 
-			sm:overflow-auto sm:overflow-y-hidden'
+			sm:overflow-auto sm:overflow-y-hidden"
 		>
 			<ul className="list-none flex self-center ">
 				{MenuOptions.map((item, index) => {

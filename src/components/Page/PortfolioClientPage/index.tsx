@@ -1,19 +1,17 @@
 'use client';
 import { useFetch } from '@/components/Hooks/useFetch';
 import usePortfolioData from '@/components/Hooks/usePortfolioData';
-import {TableFilteredComposition } from '@/components/shared/Layout';
+import { TableFilteredComposition } from '@/components/shared/Layout';
 
 import { CurrencyList } from '@/types';
 
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
-	const { data, error } = useFetch<CurrencyList>(
-		'tickers'
-	);
+	const { data, error } = useFetch<CurrencyList>('tickers');
 
-	const filter = data?.filter(currency => userPortfolioData.includes(currency.id))||[];
-	
-	
+	const filter =
+		data?.filter(currency => userPortfolioData.includes(currency.id)) || [];
+
 	if (error) {
 		return (
 			<p className=" text-dark-purple-neko">

@@ -4,7 +4,11 @@
 import { Currency } from '@/types';
 import { CurrencyTableColumn } from './MainCurrencyTable';
 
-export const MainBodyTable = ({ currencyList }: { currencyList: Currency[] }) => {
+export const MainBodyTable = ({
+	currencyList
+}: {
+	currencyList: Currency[];
+}) => {
 	if (currencyList?.length > 0)
 		return (
 			<tbody>

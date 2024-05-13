@@ -4,4 +4,10 @@ import { Table } from './TableComponent';
 import { PaginationTable } from './PaginationTable';
 import TableFilteredComposition from './TableComposition';
 
-export { Table, MainBodyTable, HeadTable, PaginationTable,TableFilteredComposition };
+export {
+	Table,
+	MainBodyTable,
+	HeadTable,
+	PaginationTable,
+	TableFilteredComposition
+};

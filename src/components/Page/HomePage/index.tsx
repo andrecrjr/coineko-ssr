@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {TableFilteredComposition } from '@/components/shared/Layout';
+import { TableFilteredComposition } from '@/components/shared/Layout';
 import { CurrencyList } from '@/types';
 
 export default function HomePage({ data }: { data: CurrencyList }) {

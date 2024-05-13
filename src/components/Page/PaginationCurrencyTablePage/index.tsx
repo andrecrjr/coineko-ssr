@@ -1,4 +1,4 @@
-import {TableFilteredComposition } from '@/components/shared/Layout';
+import { TableFilteredComposition } from '@/components/shared/Layout';
 import React from 'react';
 
 export default function PaginationCurrencyTable() {

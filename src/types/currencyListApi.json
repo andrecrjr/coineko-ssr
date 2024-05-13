@@ -1,13 +1,13 @@
 {
-"id": "btc-bitcoin",
-"name": "Bitcoin",
-"symbol": "BTC",
-"rank": 1,
-"total_supply": 19696044,
-"max_supply": 21000000,
-"beta_value": 1.03676,
-"first_data_at": "2010-07-17T00:00:00Z",
-"last_updated": "2024-05-09T17:57:17Z",
+	"id": "btc-bitcoin",
+	"name": "Bitcoin",
+	"symbol": "BTC",
+	"rank": 1,
+	"total_supply": 19696044,
+	"max_supply": 21000000,
+	"beta_value": 1.03676,
+	"first_data_at": "2010-07-17T00:00:00Z",
+	"last_updated": "2024-05-09T17:57:17Z",
 	"quotes": {
 		"USD": {
 			"price": 62140.88455623212,

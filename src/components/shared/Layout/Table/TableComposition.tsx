@@ -14,7 +14,6 @@ export default function TableFilteredComposition({
 	data,
 	tableDescription
 }: TableProps) {
-	
 	return (
 		<>
 			<DescriptionTable description={tableDescription} />

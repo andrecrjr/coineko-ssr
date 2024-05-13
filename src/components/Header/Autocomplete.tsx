@@ -5,9 +5,7 @@ import { CurrencyItem, searchType } from '@/types';
 import { StarPortfolioCurrency } from '../shared/Layout';
 
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
-	const { data, isLoading } = useFetch<searchType>(
-		`search?q=${searchParam}`
-	);
+	const { data, isLoading } = useFetch<searchType>(`search?q=${searchParam}`);
 
 	if (!isLoading && !!data)
 		return (
@@ -42,7 +40,7 @@ const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
 				width="19"
 				height="19"
 				alt={currency.name}
-			/> 
+			/>
 			<h3 className="text-sm break-before-auto overflow-hidden ml-4">
 				{currency.name}
 			</h3>

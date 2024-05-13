@@ -12,7 +12,7 @@ export const convertFilterQueryString = (
 	return prepath + filterResult;
 };
 
-export const paginationApiData = (data:Currency[], currentPage:number) =>{
+export const paginationApiData = (data: Currency[], currentPage: number) => {
 	let itensPerPage = 50;
 	let initialIndex = (currentPage - 1) * itensPerPage;
 	if (initialIndex + itensPerPage < data.length)

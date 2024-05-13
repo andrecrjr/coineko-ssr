@@ -21,14 +21,12 @@ export function PaginationTable() {
 							pathname: pathNameNextPrevious('previous')
 						}}
 					>
-						<MdNavigateBefore  size={26} className="fill-purple-neko-800" />
+						<MdNavigateBefore size={26} className="fill-purple-neko-800" />
 					</Link>
 				)}
 			</li>
 			<li className="min-w-[80px]">
-				<Link
-					href={{ pathname: pathNameNextPrevious('next') }}
-				>
+				<Link href={{ pathname: pathNameNextPrevious('next') }}>
 					<MdNavigateNext size={26} className="fill-purple-neko-800" />
 				</Link>
 			</li>

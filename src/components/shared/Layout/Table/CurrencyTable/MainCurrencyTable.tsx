@@ -22,7 +22,9 @@ export const CurrencyTableColumn = ({ currency }: { currency: Currency }) => {
 				role={`percentage 1h in ${currency.name}`}
 			/>
 			<ColumnPercentageCurrency
-				currencyNumber={currency && currency?.quotes['USD'].market_cap_change_24h}
+				currencyNumber={
+					currency && currency?.quotes['USD'].market_cap_change_24h
+				}
 			/>
 			<ColumnPercentageCurrency
 				currencyNumber={currency && currency?.quotes['USD'].percent_change_7d}

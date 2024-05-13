@@ -22,7 +22,7 @@ export function HeadTable() {
 				</td>
 				<td className="table--head min-w-[auto] sm:min-w-[auto]">
 					Last 7 days
-				</td> 
+				</td>
 			</tr>
 		</thead>
 	);

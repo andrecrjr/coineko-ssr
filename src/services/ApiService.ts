@@ -2,7 +2,11 @@ import { CurrencyList } from '@/types';
 import { paginationApiData } from '@/utils';
 
 export const fetchService = {
-	async fetchCached<T>(path: string, options?: {}, revalidate:number=900000): Promise<T> {
+	async fetchCached<T>(
+		path: string,
+		options?: {},
+		revalidate: number = 900000
+	): Promise<T> {
 		const data = await fetch(`https://api.coinpaprika.com/v1/${path}`, {
 			...options,
 			next: { revalidate: revalidate }
@@ -16,9 +20,17 @@ export const fetchService = {
 			});
 		return data;
 	},
-	async getFetchData<T>(urlParam: string, options?: {}, revalidate?:number): Promise<T> {
+	async getFetchData<T>(
+		urlParam: string,
+		options?: {},
+		revalidate?: number
+	): Promise<T> {
 		try {
-			const data = await this.fetchCached<T>(`${urlParam}`, options, revalidate);
+			const data = await this.fetchCached<T>(
+				`${urlParam}`,
+				options,
+				revalidate
+			);
 			return data;
 		} catch (error) {
 			throw new Error(`Problem in API ${error}`);
@@ -27,26 +39,33 @@ export const fetchService = {
 };
 
 export async function fetchAndFilterData(categoryId: string, id: string) {
-  // Fetch the complete list of currencies
-  const data = await fetchService.getFetchData<CurrencyList>('/tickers');
+	// Fetch the complete list of currencies
+	const data = await fetchService.getFetchData<CurrencyList>('/tickers');
 
-  // Fetch the data for a specific category
-  const categoryData = await fetchService.getFetchData<{ category_id: string; name: string; description: string; coins: string[] }>(
-    `tags/${categoryId}?additional_fields=coins`
-  );
+	// Fetch the data for a specific category
+	const categoryData = await fetchService.getFetchData<{
+		category_id: string;
+		name: string;
+		description: string;
+		coins: string[];
+	}>(`tags/${categoryId}?additional_fields=coins`);
 
-  // Filter the data by category if the category is not 'cryptocurrency'
-  const filteredDataByCategory = categoryId === 'cryptocurrency' 
-    ? data 
-    : data.filter(currency => categoryData.coins.includes(currency.id));
+	// Filter the data by category if the category is not 'cryptocurrency'
+	const filteredDataByCategory =
+		categoryId === 'cryptocurrency'
+			? data
+			: data.filter(currency => categoryData.coins.includes(currency.id));
+	// Paginate the filtered data
+	const paginatedData = paginationApiData(filteredDataByCategory, Number(id));
+	const paginatedUpdateData = await Promise.all(
+		paginatedData.map(async currency => {
+			const response = await fetch(
+				`https://graphsv2.coinpaprika.com/currency/data/${currency.id}/7d/?quote=usd`
+			);
+			const data = await response.json();
+			return { ...currency, last_7_days: data[0].price };
+		})
+	);
 
-  // Paginate the filtered data
-  const paginatedData = paginationApiData(filteredDataByCategory, Number(id));
-  const paginatedUpdateData = await Promise.all(paginatedData.map(async(currency)=>{
-		const response = await fetch(`https://graphsv2.coinpaprika.com/currency/data/${currency.id}/7d/?quote=usd`);
-	 	const data = await response.json();
-	 	return {...currency, last_7_days:data[0].price};
-  }));
-
-  return {paginatedData:paginatedUpdateData, categoryData};
+	return { paginatedData: paginatedUpdateData, categoryData };
 }

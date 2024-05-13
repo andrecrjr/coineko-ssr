@@ -46,8 +46,7 @@
 		@apply sticky top-0 left-0;
 	}
 
-	a:hover{
+	a:hover {
 		@apply opacity-60 transition-all duration-100;
-
 	}
 }
