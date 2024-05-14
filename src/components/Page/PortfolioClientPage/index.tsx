@@ -8,7 +8,7 @@ import { CurrencyList } from '@/types';
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
 	const { data } = useFetch<CurrencyList>(
-		`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME!}/api/portfolioCryptoPrice`,
+		`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME}/api/portfolioCryptoPrice`,
 		{
 			method: 'POST',
 			body: JSON.stringify({ dataPortfolio: userPortfolioData, page: 1 })

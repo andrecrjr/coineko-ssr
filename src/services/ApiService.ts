@@ -46,7 +46,7 @@ export async function fetchAndFilterDataByTag(categoryId: string, id: string) {
 			coins: string[];
 		};
 	}>(
-		`${process.env.NEXT_STATIC_HOSTNAME}/api/paginationCryptoPrice?category=${categoryId}&page=${id}`
+		`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME}/api/paginationCryptoPrice?category=${categoryId}&page=${id}`
 	);
 
 	return { paginatedData: paginatedUpdateData, categoryData };
