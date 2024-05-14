@@ -11,5 +11,6 @@ export function useFetch<T>(path: string, swrOptions = defaultConfig) {
 		fetchService.fetchCached,
 		swrOptions
 	);
+	console.log(path);
 	return { data, error, isLoading };
 }

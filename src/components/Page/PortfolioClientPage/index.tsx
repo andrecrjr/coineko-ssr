@@ -8,7 +8,7 @@ import { CurrencyList } from '@/types';
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
 	const { data, error } = useFetch<CurrencyList>(
-		'https://api.coinpaprika.com/v1/tickers'
+		`${process.env.NEXT_PUBLIC_CURRENT_COIN_API_ENDPOINT!}tickers`
 	);
 
 	const filter =
@@ -17,7 +17,7 @@ function PortfolioClientPage() {
 	if (error) {
 		return (
 			<p className=" text-dark-purple-neko">
-				Problem to get data from {process.env.NEXT_CURRENT_COIN_API}!
+				Problem to get data from {process.env.NEXT_PUBLIC_CURRENT_COIN_API}!
 			</p>
 		);
 	}
