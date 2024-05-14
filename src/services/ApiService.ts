@@ -6,6 +6,7 @@ export const fetchService = {
 		options?: {},
 		revalidate: number = 900000
 	): Promise<T> {
+		console.log(options);
 		const data = await fetch(`${path}`, {
 			...options,
 			next: { revalidate: revalidate }
