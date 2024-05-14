@@ -1,10 +1,9 @@
 import { fetchService } from '@/services/ApiService';
 import { Currency } from '@/types';
 import { paginationApiData } from '@/utils';
-import { NextApiRequest } from 'next';
 import { NextResponse } from 'next/server';
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url || '');
 	const categoryId = searchParams.get('category');
 	const id = searchParams.get('page');
