@@ -4,7 +4,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: '*.coingecko.com',
+				hostname: '*.coinpaprika.com',
 				port: ''
 			}
 		],

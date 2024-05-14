@@ -1,12 +1,8 @@
+// import { Metadata } from 'next';
+
+import { fetchAndFilterDataByTag, fetchService } from '@/services/ApiService';
+import { TableFilteredComposition } from '@/components/shared/Layout';
 import { Metadata } from 'next';
-
-import { fetchService } from '@/services/ApiService';
-
-import { CurrencyList } from '@/types';
-
-import { convertFilterQueryString, getMetadataName } from '@/utils';
-import { TableComposition } from '@/components/shared/Layout';
-import ErrorPage from '@/components/Page/ErrorPage';
 
 type Props = {
 	params: { categoryPages: string[] };
@@ -14,46 +10,30 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const metadata = await fetchService.getFetchData<
-		[{ category_id: string; name: string }]
-	>('/coins/categories/list');
-
-	const titleSection = getMetadataName(metadata, params.categoryPages[0]);
-	const pageNumber = parseInt(params.categoryPages[1]);
-	const paginationTitle =
-		pageNumber > 1 ? ` - Page ${params.categoryPages[1]}` : '';
+	const metadata = await fetchService.getFetchPriceApi<{
+		category_id: string;
+		name: string;
+		description: string;
+	}>(`tags/${params.categoryPages[0]}`, {}, 1000 * 100000);
+	const paginationTitle = ` - Page ${params.categoryPages[1]}`;
 	return {
-		title: titleSection?.name + paginationTitle
+		title: metadata?.name + paginationTitle,
+		description: metadata?.description
 	};
 }
 
 export default async function TablePages({ params }: Props) {
-	const [categoryPage, id] = params.categoryPages;
-	const queryUrl = convertFilterQueryString(
-		{
-			vs_currency: 'usd',
-			order: 'market_cap_desc',
-			per_page: '50',
-			sparkline: 'true',
-			page: id,
-			price_change_percentage: '1h,24h,7d',
-			category: categoryPage
-		},
-		'/coins/markets?'
-	);
-	const data = await fetchService.getFetchData<CurrencyList>(queryUrl);
-	const metadata = await fetchService.getFetchData<
-		[{ category_id: string; name: string }]
-	>('/coins/categories/list');
-	const titleSection = getMetadataName(metadata, categoryPage);
+	const [categoryId, id] = params.categoryPages;
 
-	if (data?.status?.error_code) {
-		return <ErrorPage />;
-	}
+	const { paginatedData, categoryData } = await fetchAndFilterDataByTag(
+		categoryId,
+		id
+	);
+
 	return (
-		<TableComposition
-			data={data}
-			tableDescription={`${titleSection.name} currencies by Market Capitalization.`}
+		<TableFilteredComposition
+			data={paginatedData || []}
+			tableDescription={`${categoryData.description}`}
 		/>
 	);
 }

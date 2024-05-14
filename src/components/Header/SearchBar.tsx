@@ -63,7 +63,7 @@ export const SearchBar = () => {
 						setSuggest('');
 					}}
 				>
-					<MdClear size={25} />
+					<MdClear size={16} />
 				</button>
 			)}
 			{suggestionItens !== '' && <AutoComplete searchParam={suggestionItens} />}

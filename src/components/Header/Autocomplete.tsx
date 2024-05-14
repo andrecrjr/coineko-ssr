@@ -1,19 +1,19 @@
+/* eslint-disable @next/next/no-img-element */
 import { useFetch } from '../Hooks/useFetch';
 
 import { CurrencyItem, searchType } from '@/types';
-import Image from 'next/image';
 import { StarPortfolioCurrency } from '../shared/Layout';
 
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
-	const { data, isLoading } = useFetch<searchType>(
-		`/search?query=${searchParam}`
+	const { data } = useFetch<searchType>(
+		`${process.env.NEXT_PUBLIC_CURRENT_COIN_API_ENDPOINT}search?q=${searchParam}`
 	);
 
-	if (!isLoading && !!data)
+	if (data)
 		return (
 			<ul className="suggest--box" role="listbox">
 				{data &&
-					data.coins.map((item: CurrencyItem) => {
+					data.currencies.map((item: CurrencyItem) => {
 						return (
 							<li
 								role="aria-selected"
@@ -36,8 +36,8 @@ const AutoCompleteItem = ({ currency }: { currency: CurrencyItem }) => {
 					my-8 sm:my-3 mx-5 items-center"
 		>
 			<StarPortfolioCurrency currencyId={currency.id} />
-			<Image
-				src={currency.thumb}
+			<img
+				src={`https://static.coinpaprika.com/coin/${currency?.id}/logo.png`}
 				className="ml-4"
 				width="19"
 				height="19"

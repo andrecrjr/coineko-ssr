@@ -10,7 +10,7 @@ export type PageCurrencyQuery = {
 	category?: string;
 };
 
-export type Currency = typeof currencyList;
+export type Currency = typeof currencyList & { last_7_days: number[] };
 
 export type CoinGeckoDataRateLimit = {
 	status?: {
@@ -19,7 +19,7 @@ export type CoinGeckoDataRateLimit = {
 	};
 };
 
-export type CurrencyList = Currency[] & CoinGeckoDataRateLimit;
+export type CurrencyList = Currency[];
 
 export type PaginationState = {
 	number: number;
@@ -36,5 +36,5 @@ export type CurrencyItem = {
 };
 
 export type searchType = {
-	coins: CurrencyItem[];
+	currencies: CurrencyItem[];
 };

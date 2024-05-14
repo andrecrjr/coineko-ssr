@@ -2,7 +2,7 @@ import React from 'react';
 
 export function HeadTable() {
 	return (
-		<thead className="border-b-[2px] border-[#4d51bb]">
+		<thead className="border-b-[3px] border-purple-neko-900">
 			<tr>
 				<td className="table--head px-0 w-6 h-auto"></td>
 				<td className="table--head px-3 text-left">#</td>

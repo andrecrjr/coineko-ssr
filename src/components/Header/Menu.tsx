@@ -14,8 +14,11 @@ const Menu = () => {
 
 	return (
 		<nav
-			className="w-full bg-purple-neko-500 overflow-x-scroll 
-			h-10 sm:h-10 flex content-center sm:justify-center sm:overflow-auto"
+			className="w-full bg-purple-neko-700 
+			overflow-x-scroll 
+			max-h-10 sm:max-h-10 flex content-center 
+			sm:justify-center 
+			sm:overflow-auto sm:overflow-y-hidden"
 		>
 			<ul className="list-none flex self-center ">
 				{MenuOptions.map((item, index) => {
@@ -23,7 +26,6 @@ const Menu = () => {
 					if (item.path !== 'portfolio') {
 						route = hostname + '/page/' + item.path + '/1';
 					}
-
 					return (
 						<Link
 							href={{
@@ -33,7 +35,7 @@ const Menu = () => {
 						>
 							<li
 								className={
-									'text-[1rem] sm:text-[0.875rem] leading-5 px-8 sm:py-6 font-roboto'
+									'text-sm sm:text-lg leading-5 px-8 font-roboto text-purple-50 sm:py-10'
 								}
 								data-testid={`button-${item.alias.toLowerCase()}`}
 							>

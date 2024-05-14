@@ -1,11 +1,11 @@
 [
 	{ "alias": "Cryptocurrency", "path": "cryptocurrency" },
-	{ "alias": "NFT", "path": "non-fungible-tokens-nft" },
+	{ "alias": "NFT", "path": "nft-tokens" },
 	{
 		"alias": "DeFi",
-		"path": "decentralized-finance-defi"
+		"path": "defi"
 	},
-	{ "alias": "Exchange", "path": "exchange-based-tokens" },
+	{ "alias": "Exchange", "path": "exchange" },
 	{
 		"alias": "Portfolio",
 		"path": "portfolio"
