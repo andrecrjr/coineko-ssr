@@ -1,6 +1,6 @@
 // import { Metadata } from 'next';
 
-import { fetchAndFilterData, fetchService } from '@/services/ApiService';
+import { fetchAndFilterDataByTag, fetchService } from '@/services/ApiService';
 import { TableFilteredComposition } from '@/components/shared/Layout';
 import { Metadata } from 'next';
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const metadata = await fetchService.getFetchData<{
+	const metadata = await fetchService.getFetchPriceApi<{
 		category_id: string;
 		name: string;
 		description: string;
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TablePages({ params }: Props) {
 	const [categoryId, id] = params.categoryPages;
 
-	const { paginatedData, categoryData } = await fetchAndFilterData(
+	const { paginatedData, categoryData } = await fetchAndFilterDataByTag(
 		categoryId,
 		id
 	);

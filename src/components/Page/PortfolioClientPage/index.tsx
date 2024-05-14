@@ -7,7 +7,9 @@ import { CurrencyList } from '@/types';
 
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
-	const { data, error } = useFetch<CurrencyList>('tickers');
+	const { data, error } = useFetch<CurrencyList>(
+		'https://api.coinpaprika.com/v1/tickers'
+	);
 
 	const filter =
 		data?.filter(currency => userPortfolioData.includes(currency.id)) || [];
