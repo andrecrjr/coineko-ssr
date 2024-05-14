@@ -22,3 +22,7 @@ export async function POST(request: Request) {
 
 	return NextResponse.json(paginatedData);
 }
+
+export async function GET() {
+	return NextResponse.json({});
+}

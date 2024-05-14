@@ -3,14 +3,11 @@ import { CurrencyList } from '@/types';
 export const fetchService = {
 	async fetchCached<T>(
 		path: string,
-		options?: {},
+		payload?: {},
 		revalidate: number = 900000
 	): Promise<T> {
-		console.log(options);
-		const data = await fetch(`${path}`, {
-			...options,
-			next: { revalidate: revalidate }
-		})
+		const options = { ...payload, next: { revalidate } };
+		const data = await fetch(`${path}`, options)
 			.then(async response => {
 				const data = await response.json();
 				return data;
