@@ -57,16 +57,16 @@ export const handledDataWithPaginationAndSparkline = async (
 	idPage: number
 ) => {
 	const paginatedData = paginationApiData(apiData, Number(idPage || 1));
-	const paginatedUpdateData = await Promise.all(
-		paginatedData.map(async currency => {
-			const response = await fetch(
-				`https://graphsv2.coinpaprika.com/currency/data/${currency.id}/7d/?quote=usd`
-			);
-			const data = await response.json();
-			return { ...currency, last_7_days: data[0].price };
-		})
-	);
-	return paginatedUpdateData;
+	// const paginatedUpdateData = await Promise.all(
+	// 	paginatedData.map(async currency => {
+	// 		const response = await fetch(
+	// 			`https://graphsv2.coinpaprika.com/currency/data/${currency.id}/7d/?quote=usd`
+	// 		);
+	// 		const data = await response.json();
+	// 		return { ...currency, last_7_days: data[0].price };
+	// 	})
+	// );
+	return paginatedData;
 };
 
 // back-end url or front-end url

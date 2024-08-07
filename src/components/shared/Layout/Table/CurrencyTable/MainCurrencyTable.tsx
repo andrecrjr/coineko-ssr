@@ -1,9 +1,9 @@
-import Sparkline from '@/components/shared/Sparkline';
 import { Currency } from '@/types';
 import { StarPortfolioCurrency } from '../../StarPortfolioCurrency';
 import { ColumnPercentageCurrency } from '../PercentageComponent';
 import { ColumnCurrencyInfoGrid } from './ColumnCurrencyInfo';
 import { ColumnMoneyFormatter } from './ColumnMoneyFormater';
+import { SparklineData } from './SparklineData';
 
 export const CurrencyTableColumn = ({ currency }: { currency: Currency }) => {
 	return (
@@ -33,18 +33,8 @@ export const CurrencyTableColumn = ({ currency }: { currency: Currency }) => {
 				classNames="table--body"
 				formatPrice={currency?.quotes['USD'].market_cap || 0}
 			/>
-			<td className="table--body">
-				{currency.last_7_days && (
-					<Sparkline
-						datasetSpark={currency?.last_7_days}
-						color={
-							currency?.quotes['USD'].percent_change_7d &&
-							currency?.quotes['USD'].percent_change_7d > 0
-								? 'green'
-								: 'red'
-						}
-					/>
-				)}
+			<td className="table--body min-w-[150px]">
+				<SparklineData currency={currency} />
 			</td>
 		</tr>
 	);

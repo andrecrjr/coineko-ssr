@@ -11,6 +11,15 @@ module.exports = {
 			fontFamily: {
 				roboto: 'Roboto'
 			},
+			keyframes: {
+				shimmer: {
+					'0%': { backgroundPosition: '-100%' },
+					'100%': { backgroundPosition: '100%' }
+				}
+			},
+			animation: {
+				shimmer: 'shimmer 1.5s ease-in-out infinite'
+			},
 			colors: {
 				'light-gray-neko': '#E2E3FE',
 				'purple-neko': {
