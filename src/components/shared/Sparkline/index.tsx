@@ -9,6 +9,7 @@ import {
 	Title,
 	Tooltip
 } from 'chart.js';
+import React from 'react';
 
 ChartJS.register(
 	CategoryScale,
@@ -56,4 +57,4 @@ function Sparkline({
 	);
 }
 
-export default Sparkline;
+export default React.memo(Sparkline);

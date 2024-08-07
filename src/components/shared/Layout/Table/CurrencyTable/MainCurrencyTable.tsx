@@ -33,7 +33,7 @@ export const CurrencyTableColumn = ({ currency }: { currency: Currency }) => {
 				classNames="table--body"
 				formatPrice={currency?.quotes['USD'].market_cap || 0}
 			/>
-			<td className="table--body min-w-[150px]">
+			<td className="table--body min-w-[140px]">
 				<SparklineData currency={currency} />
 			</td>
 		</tr>
