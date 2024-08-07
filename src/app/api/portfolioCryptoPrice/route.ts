@@ -6,21 +6,26 @@ import { handledDataWithPaginationAndSparkline } from '@/utils';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
-	const { dataPortfolio, idPage } = await request.json();
+	try {
+		const { dataPortfolio, idPage } = await request.json();
 
-	const priceData = await fetchService.getFetchPriceApi<Currency[]>(
-		'/tickers',
-		{},
-		1000 * 1000
-	);
-	const portfolioFilteredData =
-		priceData?.filter(currency => dataPortfolio.includes(currency.id)) || [];
-	const paginatedData = await handledDataWithPaginationAndSparkline(
-		portfolioFilteredData,
-		idPage
-	);
+		const priceData = await fetchService.getFetchPriceApi<Currency[]>(
+			'/tickers',
+			{},
+			1000 * 1000
+		);
 
-	return NextResponse.json(paginatedData);
+		const portfolioFilteredData =
+			priceData?.filter(currency => dataPortfolio.includes(currency.id)) || [];
+		const paginatedData = await handledDataWithPaginationAndSparkline(
+			portfolioFilteredData,
+			idPage
+		);
+
+		return NextResponse.json(paginatedData);
+	} catch (error) {
+		throw new Error('Problem in API');
+	}
 }
 
 export async function GET() {

@@ -1,6 +1,6 @@
 import { fetchService } from '@/services/ApiService';
 import { Currency } from '@/types';
-import { handledDataWithPaginationAndSparkline } from '@/utils';
+import { paginationApiData } from '@/utils';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
@@ -25,7 +25,7 @@ export async function GET(request: Request) {
 		categoryId === 'cryptocurrency'
 			? priceData
 			: priceData.filter(currency => categoryData.coins.includes(currency.id));
-	const paginatedUpdateData = await handledDataWithPaginationAndSparkline(
+	const paginatedUpdateData = paginationApiData(
 		filteredDataByCategory,
 		parseInt(id)
 	);
