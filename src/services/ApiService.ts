@@ -3,35 +3,53 @@ import { CurrencyList } from '@/types';
 export const fetchService = {
 	async fetchCached<T>(
 		path: string,
-		payload?: {},
+		options: {
+			method?: string;
+			headers?: { [key: string]: string };
+			body?: string;
+			[key: string]: any;
+		} = {},
 		revalidate: number = 900000
 	): Promise<T> {
-		const options = { ...payload, next: { revalidate } };
-		const data = await fetch(`${path}`, options)
-			.then(async response => {
-				const data = await response.json();
-				return data;
-			})
-			.catch(e => {
-				throw new Error('Problem to connect in API', e);
-			});
-		return data;
-	},
-	async getFetchPriceApi<T>(
-		urlParam: string,
-		options?: {},
-		revalidate?: number
-	): Promise<T> {
 		try {
-			const data = await this.fetchCached<T>(
-				`https://api.coinpaprika.com/v1/${urlParam}`,
-				options,
-				revalidate
-			);
+			const fetchOptions = {
+				...options,
+				headers: {
+					'Content-Type': 'application/json',
+					...(options.headers || {})
+				},
+				next: { revalidate }
+			};
+
+			const response = await fetch(path, fetchOptions);
+
+			if (!response.ok) {
+				throw new Error(`API responded with status ${response.status}`);
+			}
+
+			const data = await response.json();
+
 			return data;
 		} catch (error) {
-			throw new Error(`Problem in API ${error}`);
+			throw new Error(`Problem connecting to API: ${(error as Error).message}`);
 		}
+	},
+
+	async getFetchPriceApi<T>(
+		urlParam: string,
+		options: {
+			method?: string;
+			headers?: { [key: string]: string };
+			body?: string;
+			[key: string]: any;
+		} = {},
+		revalidate?: number
+	): Promise<T> {
+		return this.fetchCached<T>(
+			`https://api.coinpaprika.com/v1/${urlParam}`,
+			options,
+			revalidate
+		);
 	}
 };
 

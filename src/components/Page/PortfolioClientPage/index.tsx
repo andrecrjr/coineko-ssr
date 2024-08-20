@@ -4,11 +4,11 @@ import usePortfolioData from '@/components/Hooks/usePortfolioData';
 import { Table } from '@/components/shared/Layout';
 
 import { CurrencyList } from '@/types';
-import { useEffect } from 'react';
+import ErrorPage from '../ErrorPage';
 
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
-	const { data } = useFetch<CurrencyList>(
+	const { data, error } = useFetch<CurrencyList>(
 		`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME}/api/portfolioCryptoPrice`,
 		{
 			method: 'POST',
@@ -16,7 +16,9 @@ function PortfolioClientPage() {
 		}
 	);
 
-	useEffect(() => {}, [userPortfolioData]);
+	if (error) {
+		return <ErrorPage />;
+	}
 
 	if (!data) {
 		return (

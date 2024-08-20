@@ -22,9 +22,14 @@ export async function POST(request: Request) {
 			idPage
 		);
 
-		return NextResponse.json(paginatedData);
+		return NextResponse.json(paginatedData, { status: 200 });
 	} catch (error) {
-		throw new Error('Problem in API');
+		// eslint-disable-next-line no-console
+		console.error('Error fetching or processing data:', error);
+		return NextResponse.json(
+			{ message: 'There was a problem processing your request.' },
+			{ status: 500 }
+		);
 	}
 }
 
