@@ -33,7 +33,7 @@ export function useFetch<T>(path: string, payload?: Payload) {
 		if (payload?.method === 'POST') {
 			postData();
 		}
-	}, []);
+	}, [payload, path, mutate]);
 
 	return { data, error, isLoading };
 }
