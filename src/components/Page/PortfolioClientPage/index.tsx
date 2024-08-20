@@ -16,9 +16,7 @@ function PortfolioClientPage() {
 		}
 	);
 
-	useEffect(()=>{
-		
-	},[userPortfolioData])
+	useEffect(() => {}, [userPortfolioData]);
 
 	if (!data) {
 		return (
