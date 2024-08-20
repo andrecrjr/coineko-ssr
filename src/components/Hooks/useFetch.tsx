@@ -7,13 +7,15 @@ type Payload = {
 	body: string;
 };
 
-export function useFetch<T>(
-	path: string,
-	payload: Payload = { method: 'GET', body: '{}' }
-) {
+export function useFetch<T>(path: string, payload?: Payload) {
 	const { data, error, isLoading, mutate } = useSWR<T>(
 		path,
-		fetchService.fetchCached
+		fetchService.fetchCached,
+		{
+			revalidateOnFocus: false,
+			dedupingInterval: 900000000,
+			revalidateOnReconnect: false
+		}
 	);
 
 	useEffect(() => {
@@ -28,10 +30,10 @@ export function useFetch<T>(
 			}
 		};
 
-		if (payload.method === 'POST') {
+		if (payload?.method === 'POST') {
 			postData();
 		}
-	}, [path, payload, mutate]);
+	}, []);
 
 	return { data, error, isLoading };
 }
