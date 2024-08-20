@@ -3,7 +3,7 @@ import { StarPortfolioCurrency } from '../../StarPortfolioCrypto';
 import { ColumnPercentageCurrency } from './PercentageComponent';
 import { ColumnCurrencyInfoGrid } from './Columns/ColumnCurrencyInfo';
 import { ColumnMoneyFormatter } from './Columns/ColumnMoneyFormater';
-import { SparklineData } from './SparklineData';
+// import { SparklineData } from './SparklineData';
 
 export const CryptoBodyTable = ({ currency }: { currency: Currency }) => {
 	return (
@@ -33,9 +33,9 @@ export const CryptoBodyTable = ({ currency }: { currency: Currency }) => {
 				classNames="table--body"
 				formatPrice={currency?.quotes['USD'].market_cap || 0}
 			/>
-			<td className="table--body min-w-[140px]">
-				<SparklineData currency={currency} />
-			</td>
+			{/* <td className="table--body min-w-[140px]">
+				 <SparklineData currency={currency} /> 
+			</td> */}
 		</tr>
 	);
 };
