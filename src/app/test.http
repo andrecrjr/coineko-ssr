@@ -10,3 +10,7 @@ content-type: application/json
 
 GET http://127.0.0.1:3000/api/paginationCryptoPrice?category=cryptocurrency&page=2 HTTP/1.1
 
+
+###
+GET http://127.0.0.1:3000/api/cryptoGraph/?id=btc-bitcoin HTTP/1.1
+

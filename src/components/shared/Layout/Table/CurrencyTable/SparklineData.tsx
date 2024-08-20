@@ -20,7 +20,7 @@ export const SparklineData = ({ currency }: Props) => {
 			}
 		]
 	>(
-		`https://graphsv2.coinpaprika.com/currency/data/${currency.id}/7d/?quote=usd`
+		`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME}/api/cryptoGraph/?id=${currency.id}`
 	);
 
 	if (!isLoading && data)
