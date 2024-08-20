@@ -3,9 +3,17 @@ import { useFetch } from '@/components/Hooks/useFetch';
 import Sparkline from '@/components/shared/Sparkline';
 import { Currency } from '@/types';
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 type Props = {
 	currency: Currency;
+};
+
+export const SparkLineInView = ({ currency }: Props) => {
+	const { ref, inView } = useInView({
+		threshold: 0.1 // Trigger when 10% of the element is visible
+	});
+	return <div ref={ref}>{inView && <SparklineData currency={currency} />}</div>;
 };
 
 export const SparklineData = ({ currency }: Props) => {
