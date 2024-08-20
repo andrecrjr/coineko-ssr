@@ -1,11 +1,11 @@
 import { Currency } from '@/types';
-import { StarPortfolioCurrency } from '../../StarPortfolioCurrency';
-import { ColumnPercentageCurrency } from '../PercentageComponent';
-import { ColumnCurrencyInfoGrid } from './ColumnCurrencyInfo';
-import { ColumnMoneyFormatter } from './ColumnMoneyFormater';
+import { StarPortfolioCurrency } from '../../StarPortfolioCrypto';
+import { ColumnPercentageCurrency } from './PercentageComponent';
+import { ColumnCurrencyInfoGrid } from './Columns/ColumnCurrencyInfo';
+import { ColumnMoneyFormatter } from './Columns/ColumnMoneyFormater';
 import { SparklineData } from './SparklineData';
 
-export const CurrencyTableColumn = ({ currency }: { currency: Currency }) => {
+export const CryptoBodyTable = ({ currency }: { currency: Currency }) => {
 	return (
 		<tr className="table--body__line pt-4">
 			<td className="table--body w-[35px] pl-2 table--star">

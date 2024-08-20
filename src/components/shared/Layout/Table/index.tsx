@@ -1,13 +1,3 @@
-import { MainBodyTable } from './CurrencyTable';
-import { HeadTable } from './HeadTable';
-import { Table } from './TableComponent';
-import { PaginationTable } from './PaginationTable';
-import TableFilteredComposition from './TableComposition';
+import Table from './TableContainer';
 
-export {
-	Table,
-	MainBodyTable,
-	HeadTable,
-	PaginationTable,
-	TableFilteredComposition
-};
+export { Table };

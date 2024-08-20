@@ -2,9 +2,9 @@
 'use client';
 
 import { Currency } from '@/types';
-import { CurrencyTableColumn } from './MainCurrencyTable';
+import { CryptoBodyTable } from './CryptoBodyTable';
 
-export const MainBodyTable = ({
+export const CryptoTableContainer = ({
 	currencyList
 }: {
 	currencyList: Currency[];
@@ -13,7 +13,7 @@ export const MainBodyTable = ({
 		return (
 			<tbody>
 				{currencyList.map((currency: Currency) => (
-					<CurrencyTableColumn key={currency.name} currency={currency} />
+					<CryptoBodyTable key={currency.name} currency={currency} />
 				))}
 			</tbody>
 		);

@@ -1,2 +1,2 @@
 export * from './Table';
-export * from './StarPortfolioCurrency';
+export * from './StarPortfolioCrypto';

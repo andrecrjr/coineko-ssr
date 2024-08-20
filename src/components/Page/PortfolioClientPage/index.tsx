@@ -1,9 +1,10 @@
 'use client';
 import { useFetch } from '@/components/Hooks/useFetch';
 import usePortfolioData from '@/components/Hooks/usePortfolioData';
-import { TableFilteredComposition } from '@/components/shared/Layout';
+import { Table } from '@/components/shared/Layout';
 
 import { CurrencyList } from '@/types';
+import { useEffect } from 'react';
 
 function PortfolioClientPage() {
 	const { userPortfolioData } = usePortfolioData();
@@ -15,6 +16,10 @@ function PortfolioClientPage() {
 		}
 	);
 
+	useEffect(()=>{
+		
+	},[userPortfolioData])
+
 	if (!data) {
 		return (
 			<p className=" text-dark-purple-neko">
@@ -24,7 +29,7 @@ function PortfolioClientPage() {
 	}
 
 	return (
-		<TableFilteredComposition
+		<Table
 			data={data}
 			tableDescription={
 				'Your portfolio, with your starred currencies in coinyan.'

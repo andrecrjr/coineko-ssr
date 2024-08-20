@@ -18,10 +18,7 @@ export const ColumnCurrencyInfoGrid = ({
 			<td className="table--body table--body__coin">
 				<section className="grid grid-cols-[1fr_100px] sm:grid-cols-[30px_auto] md:auto-rows-max  table--fix">
 					<img
-						src={`${
-							`https://static.coinpaprika.com/coin/${currency?.id}/logo.png` ||
-							'https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579'
-						}`}
+						src={`${`https://static.coinpaprika.com/coin/${currency?.id}/logo.png`}`}
 						className="mx-auto mt-auto"
 						style={{ userSelect: 'none' }}
 						width="25"

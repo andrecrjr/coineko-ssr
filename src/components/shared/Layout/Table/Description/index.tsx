@@ -2,11 +2,7 @@ import { assetList } from '@/assets';
 import SvgAsset from '@/assets/IconSvg';
 import React from 'react';
 
-export default function DescriptionTable({
-	description
-}: {
-	description: string;
-}) {
+export function DescriptionTable({ description }: { description: string }) {
 	return (
 		<section className="flex items-center mt-8 w-10/12 mb-2 md:mb-5 md:mt-10">
 			<SvgAsset
