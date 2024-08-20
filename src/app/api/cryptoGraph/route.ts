@@ -7,6 +7,5 @@ export async function GET(request: Request) {
 		`https://graphsv2.coinpaprika.com/currency/data/${cryptoId}/7d/?quote=usd`
 	);
 	const data = await resp.json();
-	console.log(data);
 	return NextResponse.json(data);
 }
