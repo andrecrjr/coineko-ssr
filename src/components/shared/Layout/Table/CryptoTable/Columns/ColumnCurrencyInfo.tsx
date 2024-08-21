@@ -24,6 +24,7 @@ export const ColumnCurrencyInfoGrid = ({
 						width="25"
 						height="25"
 						alt={currency?.name || 'Crypto'}
+						loading="lazy"
 					/>
 					<a
 						className="row-span-2 flex 

@@ -4,8 +4,12 @@ import { mutate } from 'swr';
 
 function usePortfolioData() {
 	const userPortfolioData = storageObject.get<string[]>('portfolio');
-	const addPortfolio = (currency: string) =>
+	const addPortfolio = (currency: string) => {
 		portFolioManagement.addToPortfolio(currency);
+		mutate(
+			`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME}/api/portfolioCryptoPrice`
+		);
+	};
 	const removePortfolio = (currency: string) => {
 		portFolioManagement.removePortfolio(currency);
 		mutate(

@@ -9,5 +9,5 @@ export default function SvgAsset({
 	>;
 }) {
 	// eslint-disable-next-line @next/next/no-img-element
-	return <img {...options} alt="icon" />;
+	return <img {...options} alt="icon" loading="lazy" />;
 }

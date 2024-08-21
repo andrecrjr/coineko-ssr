@@ -16,7 +16,7 @@ const Menu = () => {
 		<nav
 			className="w-full bg-purple-neko-700 
 			overflow-x-scroll 
-			max-h-10 sm:max-h-10 flex content-center 
+			h-12 sm:max-h-14 flex content-center 
 			sm:justify-center 
 			sm:overflow-auto sm:overflow-y-hidden"
 		>

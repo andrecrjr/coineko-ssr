@@ -6,7 +6,7 @@ import { StarPortfolioCurrency } from '../shared/Layout';
 
 export const AutoComplete = ({ searchParam }: { searchParam: string }) => {
 	const { data } = useFetch<searchType>(
-		`${process.env.NEXT_PUBLIC_CURRENT_COIN_API_ENDPOINT}search?q=${searchParam}`
+		`${process.env.NEXT_PUBLIC_STATIC_HOSTNAME}/api/search?id=${searchParam}`
 	);
 
 	if (data)

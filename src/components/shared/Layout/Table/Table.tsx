@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { DescriptionTable } from './Description';
-import { CryptoTableContainer } from './CurrencyTable';
+import { CryptoTableContainer } from './CryptoTable';
 import { HeadTable } from './HeadTable';
 import { PaginationTable } from './Pagination';
 

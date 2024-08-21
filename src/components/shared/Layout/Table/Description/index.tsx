@@ -4,14 +4,14 @@ import React from 'react';
 
 export function DescriptionTable({ description }: { description: string }) {
 	return (
-		<section className="flex items-center mt-8 w-10/12 mb-2 md:mb-5 md:mt-10">
+		<section className="flex items-center mt-8 sm:w-10/12 mb-2 md:mb-5 md:mt-10">
 			<SvgAsset
 				options={{
 					alt: 'coinyan',
 					width: '50',
 					height: '50',
 					src: `${assetList['cat']}`,
-					className: 'inline self-center w-5 sm:w-15'
+					className: 'inline self-center w-5 mr-4 sm:w-15'
 				}}
 			/>
 
